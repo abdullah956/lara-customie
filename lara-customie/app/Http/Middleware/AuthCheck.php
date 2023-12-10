@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Session;
 class AuthCheck
 {
     /**
@@ -15,6 +15,9 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!Session::has('user_data')) {
+            return redirect("signup");
+        }
         return $next($request);
     }
 }

@@ -21,3 +21,7 @@ Route::get('/home',[HomeController::class,'index'])->name('');
 Route::get('/signup',[SignUpController::class,'insertSignUp'])->name('Form.SignUp');
 Route::post('/Home',[SignUpController::class,'storeSignUp'])->name('Form.StoreSignUp');
 Route::post('/HOme',[SignUpController::class,'checkLogin'])->name('Form.Login');
+
+Route::group(['middleware'=> ['authCheck']], function () {
+    Route::get('/hello',[SignUpController::class,'hello']);
+});
