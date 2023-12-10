@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login & Registration Form</title>
   <!---Custom CSS File--->
-  <link rel="stylesheet" href="../CSS/login.css">
-  <script src="../JS/login.js"></script>
+  <link rel="stylesheet" href="{{ URL::asset('css/Forms/login.css') }}">
+  <script src="{{ URL::asset('js/Forms/login.js') }}"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
@@ -23,7 +23,7 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
-      <form action="../PHP/login.php" method="post" onsubmit="return validateFormLogin()" id="form1">
+      <form action="" method="post" onsubmit="return validateFormLogin()" id="form1">
         <span id="emailerror"></span>
         <input type="text" name="email" id="email" placeholder="Enter your email">
         <span id="passworderror"></span>
@@ -39,9 +39,10 @@
     </div>
     <div class="registration form">
       <header>Signup</header>
-      <form method="post" action="../PHP/signup.php" onsubmit="return validateFormSignUp()">
+      <form method="post" action="{{route('Form.StoreSignUp')}}" onsubmit="return validateFormSignUp()">
+        @csrf
         <span id="usernameerror" class="error-span"></span>
-        <input type="text" placeholder="Enter username" name="username" class="sign">
+        <input type="text" placeholder="Enter username" name="name" class="sign">
         <span id="semailerror" class="error-span"></span>
         <input type="text" placeholder="Enter your email" name="email" class="sign">
         <span id="spassworderror" class="error-span"></span>

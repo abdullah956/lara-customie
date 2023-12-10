@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SignUpController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/signup',[SignUpController::class,'insertSignUp'])->name('Form.SignUp');
+Route::post('/Home',[SignUpController::class,'storeSignUp'])->name('Form.StoreSignUp');
+
+Route::get('/home',[HomeController::class,'index'])->name('Home.index');
