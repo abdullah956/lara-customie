@@ -17,7 +17,7 @@ use App\Http\Controllers\SignUpController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home',[HomeController::class,'index'])->name('');
 Route::get('/signup',[SignUpController::class,'insertSignUp'])->name('Form.SignUp');
 Route::post('/Home',[SignUpController::class,'storeSignUp'])->name('Form.StoreSignUp');
-
-Route::get('/home',[HomeController::class,'index'])->name('Home.index');
+Route::post('/HOme',[SignUpController::class,'checkLogin'])->name('Form.Login');

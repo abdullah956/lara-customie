@@ -23,7 +23,8 @@
     <input type="checkbox" id="check">
     <div class="login form">
       <header>Login</header>
-      <form action="" method="post" onsubmit="return validateFormLogin()" id="form1">
+      <form action="{{route('Form.Login')}}" method="post" onsubmit="return validateFormLogin()" id="form1">
+        @csrf
         <span id="emailerror"></span>
         <input type="text" name="email" id="email" placeholder="Enter your email">
         <span id="passworderror"></span>
