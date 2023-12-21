@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/checkout.css">
-    <script src="../JS/checkout.js"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/Forms/checkout.css') }}">
+  <script src="{{ URL::asset('js/Forms/checkout.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -132,9 +132,9 @@
         <div class="row">
             <div class="col-75">
                 <div class="container">
-                    <form name="checkoutForm" method="post" action="../PHP/checkoutForm.php"
+                    <form name="checkoutForm" method="post" action="{{route('Form.CheckoutProduct')}}"
                         onsubmit=" return validateFormCheckout()">
-
+                        @csrf
                         <div class="row">
                             <div class="col-50">
                                 <h3 style="color: black; text-decoration: none;">Total : <span>£2000</span></h3>

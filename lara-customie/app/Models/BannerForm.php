@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class BannerForm extends Model
 {
     use HasFactory;
+    protected $table = "img_form_tbl";
 }

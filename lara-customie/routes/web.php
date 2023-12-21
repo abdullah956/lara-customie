@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignUpController;
 /*
@@ -25,3 +26,6 @@ Route::post('/HOme',[SignUpController::class,'checkLogin'])->name('Form.Login');
 Route::group(['middleware'=> ['authCheck']], function () {
     Route::get('/hello',[SignUpController::class,'hello']);
 });
+
+Route::get('/checkout',[ProductController::class,'checkoutPage'])->name('Form.Checkout');
+Route::post('/checkoutProduct',[ProductController::class,'checkoutProduct'])->name('Form.CheckoutProduct');
