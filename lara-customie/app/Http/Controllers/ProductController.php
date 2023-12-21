@@ -38,6 +38,8 @@ class ProductController extends Controller
         $BannerForm->description = $request->uploadedtext;
         $BannerForm->width = $request->width;
         $BannerForm->height = $request->height;
+        $image = time() . '.' . $request->uploadedimg->extension();
+        $request->uploadedimg->move(public_path('products'), $image);
         $BannerForm->save();
         return view("Home.index");
     }
