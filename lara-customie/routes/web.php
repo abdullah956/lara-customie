@@ -27,5 +27,9 @@ Route::group(['middleware'=> ['authCheck']], function () {
     Route::get('/hello',[SignUpController::class,'hello']);
 });
 
+//checkout
 Route::get('/checkout',[ProductController::class,'checkoutPage'])->name('Form.Checkout');
 Route::post('/checkoutProduct',[ProductController::class,'checkoutProduct'])->name('Form.CheckoutProduct');
+//img product
+Route::get('/banner',[ProductController::class,'bannerForm'])->name('Form.Banner');
+Route::post('/bannerSave',[ProductController::class,'saveBannerData'])->name('Form.BannerSave');

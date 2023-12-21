@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BannerForm;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,19 @@ class ProductController extends Controller
         $Checkout->payment_method = $request->money;
         $Checkout->save();
         return view("Home.home",["name"=>$Checkout->first_name]);
+    }
+    public function bannerForm(Request $request){
+        return view("Forms.bannerForm");
+    }
+    public function saveBannerData(Request $request){
+        $BannerForm = new BannerForm();
+        $BannerForm->id = $request->id; 
+        $BannerForm->img = $request->uploadedimg;
+        $BannerForm->description = $request->uploadedtext;
+        $BannerForm->width = $request->width;
+        $BannerForm->height = $request->height;
+        $BannerForm->save();
+        return view("Home.index");
     }
 }
 
