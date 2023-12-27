@@ -33,3 +33,7 @@ Route::post('/checkoutProduct',[ProductController::class,'checkoutProduct'])->na
 //img product
 Route::get('/banner',[ProductController::class,'bannerForm'])->name('Form.Banner');
 Route::post('/bannerSave',[ProductController::class,'saveBannerData'])->name('Form.BannerSave');
+
+
+
+Route::get('/catagoryhome',[HomeController::class,'catagoryHome'])->name('Catagory.Home');
