@@ -12,4 +12,7 @@ class HomeController extends Controller
     public function catagoryHome(){
         return view("Catagories.catagoryHome");
     }
+    public function cart(){
+        return view("Home.cart");
+    }
 }

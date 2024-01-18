@@ -37,3 +37,5 @@ Route::post('/bannerSave',[ProductController::class,'saveBannerData'])->name('Fo
 
 
 Route::get('/catagoryhome',[HomeController::class,'catagoryHome'])->name('Catagory.Home');
+
+Route::get('/cart',[HomeController::class,'cart'])->name('Home.Cart');
