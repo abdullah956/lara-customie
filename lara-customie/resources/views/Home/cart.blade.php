@@ -122,142 +122,60 @@
 
     <!--section1 start-->
     <!--Product Form started-->
-    <center>
-        <section class="cart">
-            <div class="cartleft">
-                <div class="carthead">
-                    <p>PRODUCT</p>
-                    <p>QUANTITY</p>
-                    <p>TOTAL</p>
-                    <p>REMOVE</p>
-                </div>
-                <div class="cartitems">
-                    <div class="cartproduct">
-                        <div>
-                            <img src="../imgs/Shirts/s2.jpg" alt="">
-
-                        </div>
-                        <div >
-                            <p>Black Hoodie</p>
-                            <p>Rs.<span>2000</span></p>
-                        </div>   
-                    </div>
-                    <div class="quantity">
-                        <input type="number" name="" id="" value="1" min="1" style="width: 3vw;height: 1.4vw;">
-                    </div>
-                    <div style="margin-right: 9.5vw;font-size: 1.2vw;">
-                        <p>Rs.<span>2000</span></p>
-                    </div>
-                    <div>
-                        <button type="button">x</button>
-                    </div>
-                    
-                </div>
-                <div class="cartitems">
-                    <div class="cartproduct">
-                        <div>
-                            <img src="../imgs/Shirts/s2.jpg" alt="">
-
-                        </div>
-                        <div >
-                            <p>Black Hoodie</p>
-                            <p>Rs.<span>2000</span></p>
-                        </div>   
-                    </div>
-                    <div class="quantity">
-                        <input type="number" name="" id="" value="1" min="1" style="width: 3vw;height: 1.5vw;">
-                    </div>
-                    <div style="margin-right: 9.5vw;font-size: 1.2vw;">
-                        <p>Rs.<span>2000</span></p>
-                    </div>
-                    <div>
-                        <button type="button">x</button>
-                    </div>
-                    
-                </div>
-                <div class="cartitems">
-                    <div class="cartproduct">
-                        <div>
-                            <img src="../imgs/Shirts/s2.jpg" alt="">
-
-                        </div>
-                        <div >
-                            <p>Black Hoodie</p>
-                            <p>Rs.<span>2000</span></p>
-                        </div>   
-                    </div>
-                    <div class="quantity">
-                        <input type="number" name="" id="" value="1" min="1" style="width: 3vw;height: 1.5vw;">
-                    </div>
-                    <div style="margin-right: 9.5vw;font-size: 1.2vw;">
-                        <p>Rs.<span>2000</span></p>
-                    </div>
-                    <div>
-                        <button type="button">x</button>
-                    </div>
-                    
-                </div>
-                <div class="cartitems">
-                    <div class="cartproduct">
-                        <div>
-                            <img src="../imgs/Shirts/s2.jpg" alt="">
-
-                        </div>
-                        <div >
-                            <p>Black Hoodie</p>
-                            <p>Rs.<span>2000</span></p>
-                        </div>   
-                    </div>
-                    <div class="quantity">
-                        <input type="number" name="" id="" value="1" min="1" style="width: 3vw;height: 1.5vw;">
-                    </div>
-                    <div style="margin-right: 9.5vw;font-size: 1.2vw;">
-                        <p>Rs.<span>2000</span></p>
-                    </div>
-                    <div>
-                        <button type="button">x</button>
-                    </div>
-                    
-                </div>
-    
-    
-            </div>
-            <div class="cartright">
-                <div class="cartrighthead">
-                    <p>CART SUMMARY</p>
-                </div>
-                <div style="width: 25vw; min-height: 15vw;padding: 1vw 2.5vw;font-size: 1.4vw;">
-
-                    <div style="display: flex;justify-content: space-between;">
-                      <p>Cart Total Rs.  :</p><p>8000</p>
-                    
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                        <p>Discount % :</p>
-                        <p>5%</p>
-                        
-    
-                    </div>
-                    <div style="display: flex;justify-content: space-between;">
-                           
-                            <p>Sub Total  Rs. :</p>
-                            <p>7200</p>
+<!--MAIN SECTION AFTER NAVS-->
+<center>
+    <section class="productscart">
+        <div class="cartheading">
+            <p>PRODUCTS</p>
+            <P>PRICE</P>
+            <P>QUANTITY</P>
+            <P>TOTAL</P>
+            <P>REMOVE</P>
+        </div>
+        <div class="productdiv">
+            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
+            <span class="productprice">$300</span>
+            <input type="number" class="productquantity" name="" id="" value="1">
+            <span class="producttotal">$300</span>
+            <button type="button">X</button>
+        </div>
+        <div class="productdiv">
+            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
+            <span class="productprice">$300</span>
+            <input type="number" class="productquantity" name="" id="" value="1" min="1">
+            <span class="producttotal">$300</span>
+            <button type="button">X</button>
+        </div>
+        <div class="productdiv">
+            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
+            <span class="productprice">$300</span>
+            <input type="number" class="productquantity" name="" id="" value="1" min="1">
+            <span class="producttotal">$300</span>
+            <button type="button">X</button>
+        </div>
+        <div class="productdiv">
+            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
+            <span class="productprice">$300</span>
+            <input type="number" class="productquantity" name="" id="" value="1" min="1">
+            <span class="producttotal">$300</span>
+            <button type="button">X</button>
+        </div>
+     
+    </section>
+    <section class="cartsummary">
         
-                    </div>
-                    
+            
+            <div class="summaryheading"><P>CART SUMMARY</P></div>
+            <div>
+                <div class="subtotal"><p>Sub Total</p><p>$300</p></div>
+                <div class="shipping"><p>Shipping</p><p>$30</p></div>
+                <div class="total"><p>Total Bill</p><p>$330</p></div>
+                <button type="button" class="chkoutbtn">Proceed to Checkout</button>
 
-                </div>
-                <div>
-                    <button type="button" >Proceed to Checkout</button>
-
-                </div>
-
-                
-    
             </div>
-        </section>
-
-    </center>
+        
+    </section>
+</center>
     <!---->
 
     <!--sec5 started-->
@@ -306,6 +224,7 @@
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
     <script>
         $(".slider").slick({
             dots: true,
@@ -340,7 +259,54 @@
             ],
         });
     </script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+  var cartData = localStorage.getItem('cart');
+  if (cartData) {
+    cartData = JSON.parse(cartData);
+    var cartContainer = document.querySelector('.productscart');
+    cartData.forEach(function (item) {
+      var productDiv = document.createElement('div');
+      productDiv.classList.add('productdiv');
+
+      // Create HTML elements for the cart item
+      var productDetails = document.createElement('span');
+      productDetails.classList.add('productdetails');
+      productDetails.innerHTML = `<img src="${item.img}" alt=""><p class="productname">${item.title}</p>`;
+
+      var productPrice = document.createElement('span');
+      productPrice.classList.add('productprice');
+      productPrice.textContent = item.price;
+
+      var productQuantity = document.createElement('input');
+      productQuantity.classList.add('productquantity');
+      productQuantity.setAttribute('type', 'number');
+      productQuantity.setAttribute('value', item.quantity);
+      productQuantity.setAttribute('min', '1');
+
+      var productTotal = document.createElement('span');
+      productTotal.classList.add('producttotal');
+      productTotal.textContent = `$${(item.quantity * parseFloat(item.price.replace('$', ''))).toFixed(2)}`;
+
+      var removeButton = document.createElement('button');
+      removeButton.setAttribute('type', 'button');
+      removeButton.textContent = 'X';
+
+      // Append the created elements to the productDiv
+      productDiv.appendChild(productDetails);
+      productDiv.appendChild(productPrice);
+      productDiv.appendChild(productQuantity);
+      productDiv.appendChild(productTotal);
+      productDiv.appendChild(removeButton);
+
+      // Append the productDiv to the cart container
+      cartContainer.appendChild(productDiv);
+    });
+  }
+});
+
+    </script>
+    </body>
 
 </html>
 

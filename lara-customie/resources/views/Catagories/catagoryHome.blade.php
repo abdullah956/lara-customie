@@ -178,10 +178,10 @@
             </div>
             <div class="clockitems slider ">
                 <div class="card">
-                    <img src="../imgs/Clock/c1.png">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
+                    <img id="i" src="../imgs/Clock/c1.png">
+                    <h1 id="t">Clock</h1>
+                    <p id="p" class="price">$19.99</p>
+                    <button onclick="addToCart()">Add to Cart</button>
                 </div>
                 <div class="card">
                     <img src="../imgs/Clock/c2.jpg">
@@ -398,7 +398,36 @@
                 },
             ],
         });
-    </script>
+    function addToCart() {
+        var img= document.getElementById('i').getAttribute('src');
+        var title= document.getElementById('t').innerText;
+        var price= document.getElementById('p').innerText;
+      var cartItem = {
+        img: img,
+        title: title,
+        price: price,
+        quantity: 1,
+      };
+  
+      // Check if cart data exists in localStorage
+      var cartData = localStorage.getItem('cart');
+      if (!cartData) {
+        // If cart data doesn't exist, create an empty array
+        cartData = [];
+      } else {
+        // If cart data exists, parse it to an array
+        cartData = JSON.parse(cartData);
+      }
+  
+      // Add the new item to the cart
+      cartData.push(cartItem);
+  
+      // Save the updated cart data to localStorage
+      localStorage.setItem('cart', JSON.stringify(cartData));
+  
+      alert('Item added to cart!');
+    }
+  </script>
 </body>
 
 </html>
