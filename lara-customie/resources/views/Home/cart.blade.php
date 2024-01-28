@@ -124,56 +124,54 @@
     <!--Product Form started-->
 <!--MAIN SECTION AFTER NAVS-->
 <center>
+
+
+    <div class="cartheading">
+        <p style="margin-left:1vw">PRODUCT DESCRIPTION</p>
+        <P>PRICE</P>
+        <P>QUANTITY</P>
+        <P>TOTAL</P>
+        <P>REMOVE</P>
+    </div>
+
+
     <section class="productscart">
-        <div class="cartheading">
-            <p>PRODUCTS</p>
-            <P>PRICE</P>
-            <P>QUANTITY</P>
-            <P>TOTAL</P>
-            <P>REMOVE</P>
-        </div>
+
+
+{{-- 
         <div class="productdiv">
             <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
-            <span class="productprice">$300</span>
+            <span class="productprice">$100</span>
             <input type="number" class="productquantity" name="" id="" value="1">
             <span class="producttotal">$300</span>
             <button type="button">X</button>
-        </div>
-        <div class="productdiv">
-            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
-            <span class="productprice">$300</span>
-            <input type="number" class="productquantity" name="" id="" value="1" min="1">
-            <span class="producttotal">$300</span>
-            <button type="button">X</button>
-        </div>
-        <div class="productdiv">
-            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
-            <span class="productprice">$300</span>
-            <input type="number" class="productquantity" name="" id="" value="1" min="1">
-            <span class="producttotal">$300</span>
-            <button type="button">X</button>
-        </div>
-        <div class="productdiv">
-            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
-            <span class="productprice">$300</span>
-            <input type="number" class="productquantity" name="" id="" value="1" min="1">
-            <span class="producttotal">$300</span>
-            <button type="button">X</button>
-        </div>
-     
+        </div> --}}
+
+
     </section>
     <section class="cartsummary">
-        
-            
-            <div class="summaryheading"><P>CART SUMMARY</P></div>
-            <div>
-                <div class="subtotal"><p>Sub Total</p><p>$300</p></div>
-                <div class="shipping"><p>Shipping</p><p>$30</p></div>
-                <div class="total"><p>Total Bill</p><p>$330</p></div>
-                <button type="button" class="chkoutbtn">Proceed to Checkout</button>
 
+
+        <div class="summaryheading">
+            <P>CART SUMMARY</P>
+        </div>
+        <div>
+            <div class="subtotal">
+                <p>Sub Total</p>
+                <p></p>
             </div>
-        
+            <div class="shipping">
+                <p>Shipping</p>
+                <p>Rs30</p>
+            </div>
+            <div class="total">
+                <p>Total Bill</p>
+                <p></p>
+            </div>
+            <button type="button" class="chkoutbtn">Proceed to Checkout</button>
+
+        </div>
+
     </section>
 </center>
     <!---->
@@ -258,58 +256,185 @@
                 },
             ],
         });
-    </script>
-    <script>
+        </script>
+     
+     <script>
         document.addEventListener('DOMContentLoaded', function () {
-  var cartData = localStorage.getItem('cart');
-  if (cartData) {
-    cartData = JSON.parse(cartData);
-    var cartContainer = document.querySelector('.productscart');
-    cartData.forEach(function (item) {
-      var productDiv = document.createElement('div');
-      productDiv.classList.add('productdiv');
-
-      // Create HTML elements for the cart item
-      var productDetails = document.createElement('span');
-      productDetails.classList.add('productdetails');
-      productDetails.innerHTML = `<img src="${item.img}" alt=""><p class="productname">${item.title}</p>`;
-
-      var productPrice = document.createElement('span');
-      productPrice.classList.add('productprice');
-      productPrice.textContent = item.price;
-
-      var productQuantity = document.createElement('input');
-      productQuantity.classList.add('productquantity');
-      productQuantity.setAttribute('type', 'number');
-      productQuantity.setAttribute('value', item.quantity);
-      productQuantity.setAttribute('min', '1');
-
-      var productTotal = document.createElement('span');
-      productTotal.classList.add('producttotal');
-      productTotal.textContent = `$${(item.quantity * parseFloat(item.price.replace('$', ''))).toFixed(2)}`;
-
-      var removeButton = document.createElement('button');
-      removeButton.setAttribute('type', 'button');
-      removeButton.textContent = 'X';
-
-      // Append the created elements to the productDiv
-      productDiv.appendChild(productDetails);
-      productDiv.appendChild(productPrice);
-      productDiv.appendChild(productQuantity);
-      productDiv.appendChild(productTotal);
-      productDiv.appendChild(removeButton);
-
-      // Append the productDiv to the cart container
-      cartContainer.appendChild(productDiv);
-    });
-  }
-});
-
+            // Initialize cart data only if it's not already present
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+    
+            // Retrieve cart data from localStorage
+            var cartData = localStorage.getItem('cart');
+    
+            if (cartData) {
+                // If cart data exists, parse it to an array
+                var cartArray = JSON.parse(cartData);
+    
+                // Get the cart container element
+                var cartContainer = document.querySelector('.productscart');
+    
+                // Loop through each item in the cart and create HTML elements
+                cartArray.forEach(function (item) {
+                    // Create a new productDiv for each item
+                    var productDiv = createProductDiv(item);
+    
+                    // Append the productDiv to the cart container
+                    cartContainer.appendChild(productDiv);
+                });
+    
+                // Update the cart summary after loading the cart page
+                updateCartSummary(cartArray);
+            }
+    
+            // Add an event listener to handle remove button clicks
+            var cartContainer = document.querySelector('.productscart');
+            cartContainer.addEventListener('click', function (event) {
+                // Check if the clicked element is a remove button
+                if (event.target.tagName === 'BUTTON' && event.target.textContent === 'X') {
+                    // Call the removeFromCart function with the clicked button
+                    removeFromCart(event.target);
+                }
+            });
+    
+            // Add an event listener to handle quantity updates
+            cartContainer.addEventListener('input', function (event) {
+                // Check if the input is a quantity input
+                if (
+                    event.target.classList.contains('productquantity') &&
+                    event.target.getAttribute('type') === 'number'
+                ) {
+                    // Call the updateQuantity function with the changed input
+                    updateQuantity(event.target);
+                }
+            });
+    
+            // Function to create a new productDiv for a given item
+            function createProductDiv(item) {
+                var productDiv = document.createElement('div');
+                productDiv.classList.add('productdiv');
+    
+                // Create HTML elements for the cart item
+                var productDetails = document.createElement('span');
+                productDetails.classList.add('productdetails');
+                productDetails.innerHTML = '<img src="' + item.img + '" alt=""><p class="productname">' + item.title + '</p>';
+    
+                var productPrice = document.createElement('span');
+                productPrice.classList.add('productprice');
+                productPrice.textContent = item.price;
+    
+                var productQuantity = document.createElement('input');
+                productQuantity.classList.add('productquantity');
+                productQuantity.setAttribute('type', 'number');
+                productQuantity.setAttribute('value', item.quantity);
+                productQuantity.setAttribute('min', '1');
+    
+                var productTotal = document.createElement('span');
+                productTotal.classList.add('producttotal');
+                productTotal.textContent = `Rs ${(item.quantity * parseFloat(item.price.replace('Rs', ''))).toFixed(2)}`;
+    
+                var removeButton = document.createElement('button');
+                removeButton.setAttribute('type', 'button');
+                removeButton.textContent = 'X';
+    
+                // Append the created elements to the productDiv
+                productDiv.appendChild(productDetails);
+                productDiv.appendChild(productPrice);
+                productDiv.appendChild(productQuantity);
+                productDiv.appendChild(productTotal);
+                productDiv.appendChild(removeButton);
+    
+                return productDiv;
+            }
+    
+            // Function to remove an item from the cart
+            function removeFromCart(removeButton) {
+                var productDiv = removeButton.parentNode;
+                var productName = productDiv.querySelector('.productname').textContent;
+    
+                // Retrieve cart data from localStorage
+                var cartData = localStorage.getItem('cart');
+    
+                if (cartData) {
+                    // If cart data exists, parse it to an array
+                    var cartArray = JSON.parse(cartData);
+    
+                    // Find and remove the item from the cart array
+                    cartArray = cartArray.filter(function (item) {
+                        return item.title !== productName;
+                    });
+    
+                    // Update the cart in localStorage
+                    localStorage.setItem('cart', JSON.stringify(cartArray));
+    
+                    // Remove the productDiv from the cart container
+                    cartContainer.removeChild(productDiv);
+    
+                    // Update the cart summary
+                    updateCartSummary(cartArray);
+                }
+            }
+    
+            // Function to update quantity and recalculate total price in cart
+            function updateQuantity(quantityInput) {
+                var productDiv = quantityInput.parentNode;
+                var productName = productDiv.querySelector('.productname').textContent;
+    
+                // Retrieve cart data from localStorage
+                var cartData = localStorage.getItem('cart');
+    
+                if (cartData) {
+                    // If cart data exists, parse it to an array
+                    var cartArray = JSON.parse(cartData);
+    
+                    // Find the item in the cart array
+                    var cartItem = cartArray.find(function (item) {
+                        return item.title === productName;
+                    });
+    
+                    // Update the quantity of the item
+                    var newQuantity = parseInt(quantityInput.value);
+    
+                    // Ensure the new quantity is greater than or equal to 1
+                    if (newQuantity < 1) {
+                        newQuantity = 1;
+                        quantityInput.value = newQuantity;
+                    }
+    
+                    cartItem.quantity = newQuantity;
+    
+                    // Update the cart in localStorage
+                    localStorage.setItem('cart', JSON.stringify(cartArray));
+    
+                    // Update the total price for the product in the cart
+                    var productTotal = productDiv.querySelector('.producttotal');
+                    productTotal.textContent = `Rs ${(newQuantity * parseFloat(cartItem.price.replace('Rs', ''))).toFixed(2)}`;
+    
+                    // Recalculate and update the cart summary
+                    updateCartSummary(cartArray);
+                }
+            }
+    
+            // Function to update the cart summary
+            function updateCartSummary(cartArray) {
+                var subtotal = 0;
+    
+                // Calculate subtotal
+                cartArray.forEach(function (item) {
+                    subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
+                });
+    
+                var shipping = 30; // Add shipping charges
+    
+                // Update subtotal, shipping, and total in the cart summary
+                document.querySelector('.subtotal p:last-child').textContent = `Rs ${subtotal.toFixed(2)}`;
+                document.querySelector('.shipping p:last-child').textContent = `Rs ${shipping.toFixed(2)}`;
+                document.querySelector('.total p:last-child').textContent = `Rs ${(subtotal + shipping).toFixed(2)}`;
+            }
+        });
     </script>
+    
     </body>
 
 </html>
-
-<!--
-
--->

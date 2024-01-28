@@ -178,22 +178,22 @@
             </div>
             <div class="clockitems slider ">
                 <div class="card">
-                    <img id="i" src="../imgs/Clock/c1.png">
-                    <h1 id="t">Clock</h1>
-                    <p id="p" class="price">$19.99</p>
-                    <button onclick="addToCart()">Add to Cart</button>
+                    <img class="item-img" src="../imgs/Clock/c1.png">
+                    <h1 class="item-title">Clock239</h1>
+                    <p  class="item-price">Rs19.99</p>
+                    <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
-                    <img src="../imgs/Clock/c2.jpg">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
+                    <img class="item-img" src="../imgs/Clock/c2.jpg">
+                    <h1 class="item-title" >Clock</h1>
+                    <p class="item-price">Rs19.99</p>
+                    <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
-                    <img src="../imgs/Clock/c7.jpg">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
+                    <img class="item-img" src="../imgs/Clock/c7.jpg">
+                    <h1 class="item-title" >Clock</h1>
+                    <p class="item-price">Rs19.99</p>
+                    <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
                     <img src="../imgs/Clock/c3.jpg">
@@ -398,36 +398,55 @@
                 },
             ],
         });
-    function addToCart() {
-        var img= document.getElementById('i').getAttribute('src');
-        var title= document.getElementById('t').innerText;
-        var price= document.getElementById('p').innerText;
-      var cartItem = {
-        img: img,
-        title: title,
-        price: price,
-        quantity: 1,
-      };
   
-      // Check if cart data exists in localStorage
-      var cartData = localStorage.getItem('cart');
-      if (!cartData) {
-        // If cart data doesn't exist, create an empty array
-        cartData = [];
-      } else {
-        // If cart data exists, parse it to an array
-        cartData = JSON.parse(cartData);
-      }
-  
-      // Add the new item to the cart
-      cartData.push(cartItem);
-  
-      // Save the updated cart data to localStorage
-      localStorage.setItem('cart', JSON.stringify(cartData));
-  
-      alert('Item added to cart!');
-    }
   </script>
+  <script>
+    // Function to handle 'Add to Cart' functionality
+    function addToCart(button) {
+        var clothCard = button.parentNode;
+    
+        var imgElement = clothCard.querySelector('.item-img');
+    
+
+        var img = imgElement ? imgElement.getAttribute('src') : null;
+        var title = clothCard.querySelector('.item-title').innerText;
+        var price = clothCard.querySelector('.item-price').innerText;
+
+        var cartItem = {
+            img: img,
+            title: title,
+            price: price,
+            quantity: 1,
+        };
+        console.log('Adding to cart:', cartItem);
+        // Check if cart data exists in localStorage
+        var cartData = localStorage.getItem('cart');
+        if (!cartData) {
+            // If cart data doesn't exist, create an empty array
+            cartData = [];
+        } else {
+            // If cart data exists, parse it to an array
+            cartData = JSON.parse(cartData);
+        }
+
+        // Check if the item already exists in the cart
+        var existingItem = cartData.find(item => item.title === title);
+
+        if (existingItem) {
+            // If the item already exists, show an alert and don't add it again
+            alert('Item already exists in the cart!');
+        } else {
+            // Add the new item to the cart
+            cartData.push(cartItem);
+
+            // Save the updated cart data to localStorage
+            localStorage.setItem('cart', JSON.stringify(cartData));
+
+            // Show a success alert
+            alert('Item added to cart!');
+        }
+    }
+</script>
 </body>
 
 </html>
