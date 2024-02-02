@@ -433,6 +433,8 @@
                 document.querySelector('.total p:last-child').textContent = `Rs ${(subtotal + shipping).toFixed(2)}`;
             }
         });
+
+
     </script>
     
     </body>
