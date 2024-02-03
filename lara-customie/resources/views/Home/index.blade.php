@@ -50,8 +50,8 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -61,8 +61,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Shirts</a></li>
@@ -70,8 +70,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -82,8 +82,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -92,8 +92,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -103,8 +103,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -175,7 +175,8 @@
 
                             </div>
                         </div>
-                        <p class="card__description" style="text-align: center;">Crafting personalized cards to capture
+                        <p class="card__description" style="text-align: center;">Crafting personalized cards to
+                            capture
                             moments with a touch of heartfelt uniqueness</p>
                     </div>
                 </a>
@@ -203,7 +204,8 @@
                                 <h3 class="card__title">Men</h3>
                             </div>
                         </div>
-                        <p class="card__description" style="text-align: center;">Crafting personalized men's accessories
+                        <p class="card__description" style="text-align: center;">Crafting personalized men's
+                            accessories
                             that elevate your style with individuality and distinction</p>
                     </div>
                 </a>
@@ -273,12 +275,16 @@
     </section>
 
     <!--catagories eneded-->
-    <center><div><p style="font-size: 2vw"><b><strong>Top Orders</strong></b></p></div></center>
+    <center>
+        <div>
+            <p style="font-size: 2vw"><b><strong>Top Orders</strong></b></p>
+        </div>
+    </center>
 
     <section class="sec4" style="background-color:rgb(0, 0, 0);height: 70vh;width: 100%;">
         <div class="container page-wrapper" style=" width: 87vw; background-color: rgb(255, 255, 255);">
-            <div class="page-inner" >
-                <div class="row" >
+            <div class="page-inner">
+                <div class="row">
                     <div class="el-wrapper">
                         <div class="box-up">
                             <img class="img" src="../imgs/Books/book.jpg" alt="" style="width: 100%;">
@@ -452,9 +458,9 @@
                 </div>
             </div>
         </div>
-        
-        
-     
+
+
+
 
     </section>
     <!--sec5 started-->
@@ -482,13 +488,15 @@
     <!--footer started-->
     <footer>
         <div class="footerdiv">
-            <h3 class="footerheading" style="
+            <h3 class="footerheading"
+                style="
                 padding-top: 10vh;
                 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
                 font-size: 3vw;
                 text-decoration: underline;
                 color: rgb(224, 224, 224);
-              ">Customie PK</h3>
+              ">
+                Customie PK</h3>
             <p class="footerdiscription">
                 At Custom Cafe, we believe that everyone deserves to have unique and memorable products. That's
                 why we offer a wide range of customizable products, from clothing and accessories to home décor
@@ -520,11 +528,11 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -538,8 +546,7 @@
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 1,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
@@ -564,7 +571,7 @@
                 },
             ],
         });
-        </script>
-</body >
+    </script>
+</body>
 
-</html >
+</html>

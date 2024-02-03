@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,8 +51,8 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -63,8 +62,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Shirts</a></li>
@@ -72,8 +71,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -84,8 +83,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -94,8 +93,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -105,8 +104,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -122,23 +121,23 @@
 
     <!--section1 start-->
     <!--Product Form started-->
-<!--MAIN SECTION AFTER NAVS-->
-<center>
+    <!--MAIN SECTION AFTER NAVS-->
+    <center>
 
 
-    <div class="cartheading">
-        <p style="margin-left:1vw">PRODUCT DESCRIPTION</p>
-        <P>PRICE</P>
-        <P>QUANTITY</P>
-        <P>TOTAL</P>
-        <P>REMOVE</P>
-    </div>
+        <div class="cartheading">
+            <p style="margin-left:1vw">PRODUCT DESCRIPTION</p>
+            <P>PRICE</P>
+            <P>QUANTITY</P>
+            <P>TOTAL</P>
+            <P>REMOVE</P>
+        </div>
 
 
-    <section class="productscart">
+        <section class="productscart">
 
 
-{{-- 
+            {{-- 
         <div class="productdiv">
             <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
             <span class="productprice">$100</span>
@@ -148,36 +147,36 @@
         </div> --}}
 
 
-    </section>
-    <section class="cartsummary">
+        </section>
+        <section class="cartsummary">
 
 
-        <div class="summaryheading">
-            <P>CART SUMMARY</P>
-        </div>
-        <div>
-            <div class="subtotal">
-                <p>Sub Total</p>
-                <p></p>
+            <div class="summaryheading">
+                <P>CART SUMMARY</P>
             </div>
-            <div class="shipping">
-                <p>Shipping</p>
-                <p>Rs30</p>
-            </div>
-            <div class="total">
-                <p>Total Bill</p>
-                <p></p>
-            </div>
-            <button type="button" class="chkoutbtn">Proceed to Checkout</button>
+            <div>
+                <div class="subtotal">
+                    <p>Sub Total</p>
+                    <p></p>
+                </div>
+                <div class="shipping">
+                    <p>Shipping</p>
+                    <p>Rs30</p>
+                </div>
+                <div class="total">
+                    <p>Total Bill</p>
+                    <p></p>
+                </div>
+                <button type="button" class="chkoutbtn">Proceed to Checkout</button>
 
-        </div>
+            </div>
 
-    </section>
-</center>
+        </section>
+    </center>
     <!---->
 
     <!--sec5 started-->
-    
+
     <!--footer started-->
     <footer>
         <div class="footerdiv">
@@ -211,11 +210,11 @@
         </p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -230,8 +229,7 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
@@ -256,50 +254,50 @@
                 },
             ],
         });
-        </script>
-     
-     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
             // Initialize cart data only if it's not already present
             if (!localStorage.getItem('cart')) {
                 localStorage.setItem('cart', JSON.stringify([]));
             }
-    
+
             // Retrieve cart data from localStorage
             var cartData = localStorage.getItem('cart');
-    
+
             if (cartData) {
                 // If cart data exists, parse it to an array
                 var cartArray = JSON.parse(cartData);
-    
+
                 // Get the cart container element
                 var cartContainer = document.querySelector('.productscart');
-    
+
                 // Loop through each item in the cart and create HTML elements
-                cartArray.forEach(function (item) {
+                cartArray.forEach(function(item) {
                     // Create a new productDiv for each item
                     var productDiv = createProductDiv(item);
-    
+
                     // Append the productDiv to the cart container
                     cartContainer.appendChild(productDiv);
                 });
-    
+
                 // Update the cart summary after loading the cart page
                 updateCartSummary(cartArray);
             }
-    
+
             // Add an event listener to handle remove button clicks
             var cartContainer = document.querySelector('.productscart');
-            cartContainer.addEventListener('click', function (event) {
+            cartContainer.addEventListener('click', function(event) {
                 // Check if the clicked element is a remove button
                 if (event.target.tagName === 'BUTTON' && event.target.textContent === 'X') {
                     // Call the removeFromCart function with the clicked button
                     removeFromCart(event.target);
                 }
             });
-    
+
             // Add an event listener to handle quantity updates
-            cartContainer.addEventListener('input', function (event) {
+            cartContainer.addEventListener('input', function(event) {
                 // Check if the input is a quantity input
                 if (
                     event.target.classList.contains('productquantity') &&
@@ -309,134 +307,136 @@
                     updateQuantity(event.target);
                 }
             });
-    
+
             // Function to create a new productDiv for a given item
             function createProductDiv(item) {
                 var productDiv = document.createElement('div');
                 productDiv.classList.add('productdiv');
-    
+
                 // Create HTML elements for the cart item
                 var productDetails = document.createElement('span');
                 productDetails.classList.add('productdetails');
-                productDetails.innerHTML = '<img src="' + item.img + '" alt=""><p class="productname">' + item.title + '</p>';
-    
+                productDetails.innerHTML = '<img src="' + item.img + '" alt=""><p class="productname">' + item
+                    .title + '</p>';
+
                 var productPrice = document.createElement('span');
                 productPrice.classList.add('productprice');
                 productPrice.textContent = item.price;
-    
+
                 var productQuantity = document.createElement('input');
                 productQuantity.classList.add('productquantity');
                 productQuantity.setAttribute('type', 'number');
                 productQuantity.setAttribute('value', item.quantity);
                 productQuantity.setAttribute('min', '1');
-    
+
                 var productTotal = document.createElement('span');
                 productTotal.classList.add('producttotal');
-                productTotal.textContent = `Rs ${(item.quantity * parseFloat(item.price.replace('Rs', ''))).toFixed(2)}`;
-    
+                productTotal.textContent =
+                    `Rs ${(item.quantity * parseFloat(item.price.replace('Rs', ''))).toFixed(2)}`;
+
                 var removeButton = document.createElement('button');
                 removeButton.setAttribute('type', 'button');
                 removeButton.textContent = 'X';
-    
+
                 // Append the created elements to the productDiv
                 productDiv.appendChild(productDetails);
                 productDiv.appendChild(productPrice);
                 productDiv.appendChild(productQuantity);
                 productDiv.appendChild(productTotal);
                 productDiv.appendChild(removeButton);
-    
+
                 return productDiv;
             }
-    
+
             // Function to remove an item from the cart
             function removeFromCart(removeButton) {
                 var productDiv = removeButton.parentNode;
                 var productName = productDiv.querySelector('.productname').textContent;
-    
+
                 // Retrieve cart data from localStorage
                 var cartData = localStorage.getItem('cart');
-    
+
                 if (cartData) {
                     // If cart data exists, parse it to an array
                     var cartArray = JSON.parse(cartData);
-    
+
                     // Find and remove the item from the cart array
-                    cartArray = cartArray.filter(function (item) {
+                    cartArray = cartArray.filter(function(item) {
                         return item.title !== productName;
                     });
-    
+
                     // Update the cart in localStorage
                     localStorage.setItem('cart', JSON.stringify(cartArray));
-    
+
                     // Remove the productDiv from the cart container
                     cartContainer.removeChild(productDiv);
-    
+
                     // Update the cart summary
                     updateCartSummary(cartArray);
                 }
             }
-    
+
             // Function to update quantity and recalculate total price in cart
             function updateQuantity(quantityInput) {
                 var productDiv = quantityInput.parentNode;
                 var productName = productDiv.querySelector('.productname').textContent;
-    
+
                 // Retrieve cart data from localStorage
                 var cartData = localStorage.getItem('cart');
-    
+
                 if (cartData) {
                     // If cart data exists, parse it to an array
                     var cartArray = JSON.parse(cartData);
-    
+
                     // Find the item in the cart array
-                    var cartItem = cartArray.find(function (item) {
+                    var cartItem = cartArray.find(function(item) {
                         return item.title === productName;
                     });
-    
+
                     // Update the quantity of the item
                     var newQuantity = parseInt(quantityInput.value);
-    
+
                     // Ensure the new quantity is greater than or equal to 1
                     if (newQuantity < 1) {
                         newQuantity = 1;
                         quantityInput.value = newQuantity;
                     }
-    
+
                     cartItem.quantity = newQuantity;
-    
+
                     // Update the cart in localStorage
                     localStorage.setItem('cart', JSON.stringify(cartArray));
-    
+
                     // Update the total price for the product in the cart
                     var productTotal = productDiv.querySelector('.producttotal');
-                    productTotal.textContent = `Rs ${(newQuantity * parseFloat(cartItem.price.replace('Rs', ''))).toFixed(2)}`;
-    
+                    productTotal.textContent =
+                        `Rs ${(newQuantity * parseFloat(cartItem.price.replace('Rs', ''))).toFixed(2)}`;
+
                     // Recalculate and update the cart summary
                     updateCartSummary(cartArray);
                 }
             }
-    
+
             // Function to update the cart summary
             function updateCartSummary(cartArray) {
                 var subtotal = 0;
-    
+
                 // Calculate subtotal
-                cartArray.forEach(function (item) {
+                cartArray.forEach(function(item) {
                     subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
                 });
-    
+
                 var shipping = 30; // Add shipping charges
-    
+
                 // Update subtotal, shipping, and total in the cart summary
                 document.querySelector('.subtotal p:last-child').textContent = `Rs ${subtotal.toFixed(2)}`;
                 document.querySelector('.shipping p:last-child').textContent = `Rs ${shipping.toFixed(2)}`;
-                document.querySelector('.total p:last-child').textContent = `Rs ${(subtotal + shipping).toFixed(2)}`;
+                document.querySelector('.total p:last-child').textContent =
+                    `Rs ${(subtotal + shipping).toFixed(2)}`;
             }
         });
-
-
     </script>
-    
-    </body>
+
+</body>
 
 </html>
