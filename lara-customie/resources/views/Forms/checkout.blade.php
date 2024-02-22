@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ URL::asset('css/Forms/checkout.css') }}">
-  <script src="{{ URL::asset('js/Forms/checkout.js') }}"></script>
+    <script src="{{ URL::asset('js/Forms/checkout.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -52,8 +52,8 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -63,8 +63,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Shirts</a></li>
@@ -72,8 +72,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -84,8 +84,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -94,8 +94,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -105,8 +105,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -132,21 +132,26 @@
         <div class="row">
             <div class="col-75">
                 <div class="container">
-                    <form name="checkoutForm" method="post" action="{{route('Form.CheckoutProduct')}}"
+                    <form name="checkoutForm" method="post" action="{{ route('stripe.session') }}"
                         onsubmit=" return validateFormCheckout()">
                         @csrf
                         <div class="row">
                             <div class="col-50">
-                                <h3 style="color: black; text-decoration: none;">Total : <span>£2000</span></h3>
+                                <h3 style="color: black; text-decoration: none;">Total : <span>Rs <input
+                                            name='total' type="text" value="{{ $total }}" readonly>
+                                    </span></h3>
                                 <label for="fname"><i class="fa fa-user"></i> First Name</label>
                                 <span id="fnameerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="fname" name="fname" placeholder="Enter Name">
+                                <input class="checkF" type="text" id="fname" name="fname"
+                                    placeholder="Enter Name">
                                 <label for="lname"><i class="fa fa-user"></i> Last Name</label>
                                 <span id="lnameerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="lname" name="lname" placeholder="Enter Email">
+                                <input class="checkF" type="text" id="lname" name="lname"
+                                    placeholder="Enter Email">
                                 <label for="saddress"><i class="fa fa-address-card-o"></i> Shippping Address</label>
                                 <span id="saddresserror" class="span-error"></span>
-                                <input class="checkF" type="text" id="saddress" name="saddress" placeholder="Enter Shipping Address">
+                                <input class="checkF" type="text" id="saddress" name="saddress"
+                                    placeholder="Enter Shipping Address">
                                 <label for="country"><i class="fa fa-globe"></i> Select Country</label>
                                 <span id="countryerror" class="span-error"></span>
                                 <select class="checkF" name="country" id="country">
@@ -157,31 +162,40 @@
                                 <br>
                                 <label for="state"><i class="fa fa-institution"></i> State</label>
                                 <span id="stateerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="state" name="state" placeholder="Enter State">
+                                <input class="checkF" type="text" id="state" name="state"
+                                    placeholder="Enter State">
                                 <label for="money"><i class="fa fa-money" aria-hidden="true"></i> Payment
                                     Method</label><br>
                                 <span id="moneyerror" class="span-error"></span>
-                                <input class="checkF" type="radio" name="money" value="cash ondelivery" required> COD
-                                <input class="checkF" type="radio" name="money" value="bank transfer"> Bank Transfer
+                                <input class="checkF" type="radio" name="money" value="cash ondelivery"
+                                    required> COD
+                                <input class="checkF" type="radio" name="money" value="bank transfer"> Bank
+                                Transfer
                             </div>
 
                             <div class="col-50">
                                 <h3 style="color: black; text-decoration: none;"></h3>
                                 <label for="email"><i class="fa fa-envelope"></i> E Mail</label>
                                 <span id="emailerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="email" name="email" placeholder="Enter email">
+                                <input class="checkF" type="text" id="email" name="email"
+                                    placeholder="Enter email">
                                 <label for="phone"><i class="fa fa-phone"></i> Phone</label>
                                 <span id="phoneerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="phone" name="phone" placeholder="Enter Phone Number">
+                                <input class="checkF" type="text" id="phone" name="phone"
+                                    placeholder="Enter Phone Number">
                                 <label for="baddress"><i class="fa fa-address-card-o"></i> Billing Address</label>
                                 <span id="baddresserror" class="span-error"></span>
-                                <input class="checkF" type="text" id="baddress" name="baddress" placeholder="Enter Billing Address">
+                                <input class="checkF" type="text" id="baddress" name="baddress"
+                                    placeholder="Enter Billing Address">
                                 <label for="city"><i class="fa fa-institution"></i> City</label>
                                 <span id="cityerror" class="span-error"></span>
-                                <input class="checkF" type="text" id="city" name="city" placeholder="Enter City">
-                                <label for="zip"><i class="fa fa-file-archive-o" aria-hidden="true"></i> Zip</label>
+                                <input class="checkF" type="text" id="city" name="city"
+                                    placeholder="Enter City">
+                                <label for="zip"><i class="fa fa-file-archive-o" aria-hidden="true"></i>
+                                    Zip</label>
                                 <span id="ziperror" class="span-error"></span>
-                                <input class="checkF" type="text" id="zip" name="zip" placeholder="Enter Zip Code">
+                                <input class="checkF" type="text" id="zip" name="zip"
+                                    placeholder="Enter Zip Code">
 
                             </div>
 
@@ -232,11 +246,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -244,8 +258,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        $(document).ready(function () {
-            $(".checkF").click(function () {
+        $(document).ready(function() {
+            $(".checkF").click(function() {
                 $(".span-error").text("");
             });
         });

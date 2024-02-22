@@ -167,7 +167,7 @@
                     <p>Total Bill</p>
                     <p></p>
                 </div>
-                <button type="button" class="chkoutbtn">Proceed to Checkout</button>
+                <button type="button" class="chkoutbtn" id='proceedToCheckoutBtn'>Proceed to Checkout</button>
 
             </div>
 
@@ -435,6 +435,38 @@
                     `Rs ${(subtotal + shipping).toFixed(2)}`;
             }
         });
+        var proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
+        proceedToCheckoutBtn.addEventListener('click', function() {
+            // Retrieve cart data from localStorage
+            var cartData = localStorage.getItem('cart');
+
+            if (cartData) {
+                // If cart data exists, parse it to an array
+                var cartArray = JSON.parse(cartData);
+
+                // Calculate subtotal, shipping, and total
+                var subtotal = calculateSubtotal(cartArray);
+                var shipping = 30; // Add shipping charges
+                var total = subtotal + shipping;
+
+                // Construct the URL with query parameters
+                var checkoutUrl = '/checkout' + '?total=' + total;
+
+                // Redirect to the checkout page with query parameters
+                window.location.href = checkoutUrl;
+            }
+        });
+
+        // Existing functions...
+
+        // Function to calculate subtotal
+        function calculateSubtotal(cartArray) {
+            var subtotal = 0;
+            cartArray.forEach(function(item) {
+                subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
+            });
+            return subtotal;
+        }
     </script>
 
 </body>
