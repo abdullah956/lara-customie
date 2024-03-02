@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BannerForm;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -15,27 +16,84 @@ class ProductController extends Controller
 
         return view('Forms.checkout', compact('total'));
     }
-    public function checkoutProduct(Request $request)
-    {
-        $Checkout = new Checkout();
-        $Checkout->id = $request->id;
-        $Checkout->first_name = $request->fname;
-        $Checkout->last_name = $request->lname;
-        $Checkout->email = $request->email;
-        $Checkout->phone = $request->phone;
-        $Checkout->country = $request->country;
-        $Checkout->state = $request->state;
-        $Checkout->city = $request->city;
-        $Checkout->zip = $request->zip;
-        $Checkout->shipping_address = $request->saddress;
-        $Checkout->billing_address = $request->baddress;
-        $Checkout->payment_method = $request->money;
-        $Checkout->save();
-        return view("Home.home", ["name" => $Checkout->first_name]);
-    }
+    // public function checkoutProduct(Request $request)
+    // {
+    //     $Checkout = new Checkout();
+    //     $Checkout->id = $request->id;
+    //     $Checkout->first_name = $request->fname;
+    //     $Checkout->last_name = $request->lname;
+    //     $Checkout->email = $request->email;
+    //     $Checkout->phone = $request->phone;
+    //     $Checkout->country = $request->country;
+    //     $Checkout->state = $request->state;
+    //     $Checkout->city = $request->city;
+    //     $Checkout->zip = $request->zip;
+    //     $Checkout->shipping_address = $request->saddress;
+    //     $Checkout->billing_address = $request->baddress;
+    //     $Checkout->payment_method = $request->money;
+    //     $Checkout->totalbill = $request->totalbill;
+    //     $Checkout->save();
+    //     return view("Home.home", ["name" => $Checkout->first_name]);
+    // }
     public function bannerForm(Request $request)
     {
         return view("Forms.bannerForm");
+    }
+    public function addProduct(Request $request)
+    {
+        return view("Admin.addProducts");
+    }
+    public function inventory(Request $request)
+    {
+        return view("Admin.inventory");
+    }
+
+    public function analytics(Request $request)
+    {
+        // Fetch orders from the database
+        $orders = Checkout::all();
+
+        // Total number of orders
+        $totalOrders = $orders->count();
+
+        // Total price from all orders
+        $totalPrice = $orders->sum('totalbill');
+
+        // Filter orders for the last 2-3 months
+        $filteredOrders = $orders->filter(function ($order) {
+            return $order->created_at >= Carbon::now()->subMonths(3);
+        });
+
+        // Prepare data for the chart
+        $ordersChartData = $filteredOrders->groupBy(function ($order) {
+            return $order->created_at->format('M Y');
+        })->map(function ($monthOrders) {
+            return $monthOrders->count();
+        });
+
+        // Calculate earnings for each month
+        $earningsChartData = $filteredOrders->groupBy(function ($order) {
+            return $order->created_at->format('M Y');
+        })->map(function ($monthOrders) {
+            return $monthOrders->sum('totalbill');
+        });
+
+        // Calculate AOV for each month
+        $aovChartData = $filteredOrders->groupBy(function ($order) {
+            return $order->created_at->format('M Y');
+        })->map(function ($monthOrders) {
+            $totalEarnings = $monthOrders->sum('totalbill');
+            $totalOrders = $monthOrders->count();
+
+            // Calculate Average Order Value (AOV)
+            return $totalOrders > 0 ? round($totalEarnings / $totalOrders, 2) : 0;
+        });
+
+
+
+        // Pass orders and chart data to the view
+        return view('Admin.analytics', compact('totalOrders', 'totalPrice', 'orders', 'ordersChartData', 'earningsChartData', 'aovChartData'));
+
     }
     public function saveBannerData(Request $request)
     {
@@ -50,5 +108,21 @@ class ProductController extends Controller
         $BannerForm->save();
         return view("Home.index");
     }
+    public function showOrdersPage()
+    {
+        // Fetch orders from the database
+        $orders = Checkout::all();
+
+        // Total number of orders
+        $totalOrders = $orders->count();
+
+        // Total price from all orders
+        $totalPrice = $orders->sum('totalbill');
+
+
+        // Pass orders and chart data to the view
+        return view('Admin.index', compact('totalOrders', 'totalPrice', 'orders'));
+    }
+
 }
 

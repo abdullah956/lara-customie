@@ -20,7 +20,7 @@ use App\Http\Controllers\StripeController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', [HomeController::class, 'index'])->name('');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/signup', [SignUpController::class, 'insertSignUp'])->name('Form.SignUp');
 Route::post('/Home', [SignUpController::class, 'storeSignUp'])->name('Form.StoreSignUp');
 Route::post('/HOme', [SignUpController::class, 'checkLogin'])->name('Form.Login');
@@ -42,3 +42,8 @@ Route::get('/catagoryhome', [HomeController::class, 'catagoryHome'])->name('Cata
 
 Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
 Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
+
+Route::get('/admin', [ProductController::class, 'showOrdersPage'])->name('orders');
+Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
+Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
+Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');

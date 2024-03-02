@@ -138,7 +138,7 @@
                         <div class="row">
                             <div class="col-50">
                                 <h3 style="color: black; text-decoration: none;">Total : <span>Rs <input
-                                            name='total' type="text" value="{{ $total }}" readonly>
+                                            name='totalbill' type="text" value="{{ $total }}" readonly>
                                     </span></h3>
                                 <label for="fname"><i class="fa fa-user"></i> First Name</label>
                                 <span id="fnameerror" class="span-error"></span>
@@ -167,9 +167,9 @@
                                 <label for="money"><i class="fa fa-money" aria-hidden="true"></i> Payment
                                     Method</label><br>
                                 <span id="moneyerror" class="span-error"></span>
-                                <input class="checkF" type="radio" name="money" value="cash ondelivery"
-                                    required> COD
-                                <input class="checkF" type="radio" name="money" value="bank transfer"> Bank
+                                <input class="checkF" type="radio" name="money" value="cashondelivery" required>
+                                COD
+                                <input class="checkF" type="radio" name="money" value="banktransfer"> Bank
                                 Transfer
                             </div>
 
