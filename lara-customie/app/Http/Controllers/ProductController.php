@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BannerForm;
 use App\Models\Checkout;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -45,7 +46,30 @@ class ProductController extends Controller
     }
     public function inventory(Request $request)
     {
-        return view("Admin.inventory");
+        $products = Product::all();
+        return view("Admin.inventory", compact('products'));
+    }
+    public function productStore(Request $request)
+    {
+        $Product = new Product();
+        $Product->id = $request->id;
+        $Product->product_catagory = $request->product_type;
+
+        // Get the original name of the uploaded file
+        $imagePath = $request->picture->hashName();
+
+        // Move the uploaded file to the 'products' directory and store it with the original name
+        $request->picture->move(public_path('products'), $imagePath);
+
+        // Save the image path to the database
+        $Product->picture = 'products/' . $imagePath;
+        $Product->name = $request->name;
+        $Product->price = $request->price;
+        $Product->serial_no = $request->serial_no;
+        $Product->quantity = $request->quantity;
+        $Product->save();
+        return redirect()->route('addProduct')->with('success', 'Product saved successfully.');
+
     }
 
     public function analytics(Request $request)

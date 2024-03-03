@@ -12,12 +12,12 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            // $table->string('product_type');
-            // $table->string('picture')->nullable(); // You might want to handle image uploads separately
-            // $table->string('name');
-            // $table->decimal('price', 8, 2);
-            // $table->string('serial_no');
-            // $table->integer('quantity')->unsigned()->default(1);
+            $table->string('product_catagory');
+            $table->string('picture');
+            $table->string('name');
+            $table->string('price');
+            $table->string('serial_no');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

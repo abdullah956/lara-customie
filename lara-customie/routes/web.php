@@ -47,3 +47,4 @@ Route::get('/admin', [ProductController::class, 'showOrdersPage'])->name('orders
 Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');
+Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');

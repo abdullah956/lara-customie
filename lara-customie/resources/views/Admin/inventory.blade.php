@@ -104,8 +104,7 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            <form id="deleteForm-{{ $product->id }}"
-                                action="{{ route('products.destroy', $product->id) }}" method="POST">
+                            <form id="deleteForm-{{ $product->id }}" action="" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <tr>
@@ -113,11 +112,10 @@
                                         <img src="{{ $product->picture }}" alt="Product Image" class="img-fluid"
                                             style="max-width:5vw;text-align:center ">
                                     </td>
-                                    <td class="text-center align-middle">{{ $product->product_type }}</td>
+                                    <td class="text-center align-middle">{{ $product->product_catagory }}</td>
                                     <td class="text-center align-middle ">{{ $product->name }}</td>
                                     <td class="text-center align-middle">{{ $product->serial_no }}</td>
                                     <td class="text-center align-middle">{{ $product->quantity }}</td>
-                                    <td class="text-center align-middle">{{ $product->category }}</td>
                                     <td class="text-center align-middle">{{ $product->price }}</td>
                                     <td class="text-center align-middle">
                                         {{-- <button type="button" class="btn btn-danger btn-sm ">Remove</button> --}}

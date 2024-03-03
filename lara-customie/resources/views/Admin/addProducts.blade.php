@@ -82,7 +82,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('Store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="productType" class="form-label">Category</label>
