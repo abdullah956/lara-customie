@@ -1,8 +1,8 @@
 :root {
-  --main-bg-color: #009d63;
-  --main-text-color: #009d63;
-  --second-text-color: #bbbec5;
-  --second-bg-color: #c1efde;
+  --main-bg-color: #ffffff;
+  --main-text-color: #000000;
+  --second-text-color: #ffffff;
+  --second-bg-color: #ffffff;
 }
 
 .primary-text {

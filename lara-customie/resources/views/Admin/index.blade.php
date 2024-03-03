@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{{ URL::asset('Imgs/logo.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ URL::asset('imgs/Icons.PNG') }}" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}" />
@@ -22,13 +22,13 @@
 
         /* Track */
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+            background: #ffffff;
             /* Set the background color of the track */
         }
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #969696;
+            background: #ffffff;
             /* Set the color of the scrollbar handle */
         }
 
@@ -50,8 +50,9 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"></i>PK
-                MART</div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"></i>
+                {{-- <img src="../imgs/Icons/logo.PNG" alt=""> --}}
+            </div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
