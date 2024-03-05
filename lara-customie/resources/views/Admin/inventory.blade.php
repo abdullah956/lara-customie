@@ -113,6 +113,7 @@
                                             style="max-width:5vw;text-align:center ">
                                     </td>
                                     <td class="text-center align-middle">{{ $product->product_catagory }}</td>
+                                    <td class="text-center align-middle">{{ $product->product_type }}</td>
                                     <td class="text-center align-middle ">{{ $product->name }}</td>
                                     <td class="text-center align-middle">{{ $product->serial_no }}</td>
                                     <td class="text-center align-middle">{{ $product->quantity }}</td>

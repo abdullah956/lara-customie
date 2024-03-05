@@ -54,6 +54,7 @@ class ProductController extends Controller
         $Product = new Product();
         $Product->id = $request->id;
         $Product->product_catagory = $request->product_type;
+        $Product->product_type = $request->category;
 
         // Get the original name of the uploaded file
         $imagePath = $request->picture->hashName();

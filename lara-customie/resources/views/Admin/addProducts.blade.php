@@ -86,22 +86,22 @@
                         @csrf
                         <div class="mb-3">
                             <label for="productType" class="form-label">Category</label>
-                            <select class="form-select" name="product_type" id="productType">
-                                <option value="clothes">Home</option>
-                                <option value="accessories">Men</option>
-                                <option value="clothes">Women</option>
-                                <option value="accessories">Stationary</option>
-                                <option value="clothes">Banners</option>
-                                <option value="accessories">Others</option>
-                            </select>
-                        </div>
-                        {{-- <div class="mb-3">
-                            <label for="category" class="form-label">Category</label>
-                            <select class="form-select" name="category" id="category">
+                            <select class="form-select" name="product_type" id="productType"
+                                onchange="updateCategories()">
+                                <option value="home">Home</option>
                                 <option value="men">Men</option>
                                 <option value="women">Women</option>
+                                <option value="stationary">Stationary</option>
+                                <option value="banners">Banners</option>
+                                <option value="others">Others</option>
                             </select>
-                        </div> --}}
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Type</label>
+                            <select class="form-select" name="category" id="category">
+
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label for="picture" class="form-label">Picture</label>
                             <input type="file" name="picture" class="form-control" id="picture">
@@ -149,6 +149,62 @@
         toggleButton.onclick = function() {
             el.classList.toggle("toggled");
         };
+    </script>
+
+    <script>
+        function updateCategories() {
+            // Get the selected value from the first select
+            var selectedValue = document.getElementById('productType').value;
+
+            // Get the second select element
+            var categorySelect = document.getElementById('category');
+
+            // Clear existing options
+            categorySelect.innerHTML = '';
+
+            // Add options based on the selected value
+            switch (selectedValue) {
+                case 'home':
+                    categorySelect.options.add(new Option('Cups', 'cups'));
+                    categorySelect.options.add(new Option('Pillows', 'pillows'));
+                    categorySelect.options.add(new Option('Clocks', 'clocks'));
+                    // Add more options as needed
+                    break;
+                case 'men':
+                    categorySelect.options.add(new Option('Shirts', 'shirts'));
+                    categorySelect.options.add(new Option('Wallets', 'wallets'));
+                    // Add more options as needed
+                    break;
+                case 'women':
+                    categorySelect.options.add(new Option('Shirts', 'shirts'));
+                    categorySelect.options.add(new Option('Rings', 'rings'));
+                    categorySelect.options.add(new Option('Necklace', 'necklace'));
+                    // Add more options as needed
+                    break;
+                case 'stationary':
+                    categorySelect.options.add(new Option('Pen', 'pen'));
+                    categorySelect.options.add(new Option('Books', 'books'));
+
+                    // Add more options as needed
+                    break;
+                case 'banners':
+                    categorySelect.options.add(new Option('Birth Days', 'birthdays'));
+                    categorySelect.options.add(new Option('Weedings', 'weedings'));
+                    categorySelect.options.add(new Option('Functions', 'functions'));
+                    // Add more options as needed
+                    break;
+                case 'others':
+                    categorySelect.options.add(new Option('Key Chains', 'keychains'));
+                    categorySelect.options.add(new Option('Mobile Covers', 'mobilecovers'));
+                    // Add more options as needed
+                    break;
+                    // Add cases for other values if needed
+                default:
+                    // Add a default case or leave it empty if no specific options for the value
+                    break;
+            }
+        }
+        window.onload = updateCategories;
     </script>
 
 </body>
