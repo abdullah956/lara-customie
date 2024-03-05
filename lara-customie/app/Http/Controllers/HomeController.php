@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view("Home.index");
     }
-    public function catagoryHome(){
-        return view("Catagories.catagoryHome");
-    }
-    public function cart(){
+    public function cart()
+    {
         return view("Home.cart");
     }
 }

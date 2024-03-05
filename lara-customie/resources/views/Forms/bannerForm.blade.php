@@ -130,7 +130,7 @@
     <center>
 
         <section class="sec4top">
-            <div class="sec4left"><img src="../imgs/Banners/b3.jpg" alt="" class="sec4img">
+            <div class="sec4left"><img src="{{ asset($product->picture) }}" alt="" class="sec4img">
             </div>
             <div class="sec4right">
 
@@ -147,7 +147,7 @@
                         <textarea id="" cols="40" rows="3" name="uploadedtext" required></textarea>
                     </div>
                     <div>
-                        <p>Per Foot Price: Rs.25</p>
+                        <p>Per Foot Price: {{ $product->price }}</p>
                     </div>
                     <div>
                         <label for="width" style="margin-right: 2.2vw;">Width (ft)</label>

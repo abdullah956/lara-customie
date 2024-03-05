@@ -105,7 +105,8 @@
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
-                            <form id="deleteForm-{{ $product->id }}" action="" method="POST">
+                            <form id="deleteForm-{{ $product->id }}"
+                                action="{{ route('products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <tr>
@@ -189,6 +190,15 @@
             $('.del').on('click', function() {
                 var productId = $(this).data('product-id');
                 $('#confirmationModal').modal('show');
+
+                $('#confirmRemove').off('click').on('click', function() {
+                    $('#deleteForm-' + productId).submit();
+                    $('#confirmationModal').modal('hide');
+                });
+
+                $('#confirmationModal .close, #confirmationModal .btn-secondary').on('click', function() {
+                    $('#confirmationModal').modal('hide');
+                });
 
                 $('#confirmRemove').off('click').on('click', function() {
                     $('#deleteForm-' + productId).submit();

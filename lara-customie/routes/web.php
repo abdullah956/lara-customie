@@ -36,9 +36,10 @@ Route::post('/checkoutProduct', [ProductController::class, 'checkoutProduct'])->
 Route::get('/banner', [ProductController::class, 'bannerForm'])->name('Form.Banner');
 Route::post('/bannerSave', [ProductController::class, 'saveBannerData'])->name('Form.BannerSave');
 
+Route::get('/banners/page', [ProductController::class, 'showPage'])->name('banners.page');
 
 
-Route::get('/catagoryhome', [HomeController::class, 'catagoryHome'])->name('Catagory.Home');
+Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
 
 Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
 Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
@@ -48,3 +49,4 @@ Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addPr
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
 Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');
 Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');

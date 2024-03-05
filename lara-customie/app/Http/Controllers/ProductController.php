@@ -10,6 +10,43 @@ use Carbon\Carbon;
 
 class ProductController extends Controller
 {
+    public function showPage(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $product = Product::find($productId);
+
+        // Perform any necessary logic and return the banners page view with the product data
+        return view('Forms.bannerForm', ['product' => $product]);
+    }
+
+
+    public function showHome()
+    {
+        $cups = Product::where('product_type', 'cups')->get();
+        $pillows = Product::where('product_type', 'pillows')->get();
+        $clocks = Product::where('product_type', 'clocks')->get();
+
+        $products = [
+            'cups' => $cups,
+            'pillows' => $pillows,
+            'clocks' => $clocks,
+        ];
+
+        return view('Catagories.catagoryHome', ['products' => $products]);
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+
+        $product->delete();
+
+        return redirect()->back()->with('success', 'Product deleted successfully.');
+    }
     public function showCheckoutPage()
     {
 

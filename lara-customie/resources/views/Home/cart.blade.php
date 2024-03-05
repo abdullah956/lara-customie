@@ -533,7 +533,7 @@
             cartArray.forEach(function(item) {
                 subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
             });
-            return subtotal;
+            return parseFloat(subtotal.toFixed(2));
         }
     </script>
 

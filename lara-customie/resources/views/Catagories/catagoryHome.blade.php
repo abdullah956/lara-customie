@@ -180,7 +180,7 @@
                 <div class="card">
                     <img class="item-img" src="../imgs/Clock/c1.png">
                     <h1 class="item-title">Clock239</h1>
-                    <p class="item-price">Rs19.99</p>
+                    <p class="item-price">Rs19000.99</p>
                     <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
@@ -268,7 +268,7 @@
     </center>
 
     <!--product section 1 -->
-    <center>
+    {{-- <center>
         <section class="cup">
             <div class="cupbanner">
                 <img src="../imgs/Cups/sidec2.jpg" alt="">
@@ -313,7 +313,36 @@
 
             </div>
         </section>
+    </center> --}}
+    <center>
+        <section class="cup">
+            <div class="cupbanner">
+                <img src="../imgs/Cups/sidec2.jpg" alt="">
+            </div>
+            <div class="cupitems slider">
+                @foreach ($products['cups'] as $cup)
+                    <div class="card">
+                        <img src="{{ $cup->picture }}" alt="{{ $cup->name }}">
+                        <h1>{{ $cup->name }}</h1>
+                        <p class="price">${{ $cup->price }}</p>
+                        <form action="{{ route('banners.page') }}" method="GET">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $cup->id }}">
+                            <button type="submit" class="btn btn-primary">Use Design</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+        </section>
     </center>
+
+
+
+
+
+
+
+
 
 
 
