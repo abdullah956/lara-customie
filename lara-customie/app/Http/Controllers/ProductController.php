@@ -128,10 +128,26 @@ class ProductController extends Controller
         $BannerForm->description = $request->uploadedtext;
         $BannerForm->width = $request->width;
         $BannerForm->height = $request->height;
+        $BannerForm->total = $request->total;
         $image = time() . '.' . $request->uploadedimg->extension();
-        $request->uploadedimg->move(public_path('products'), $image);
+        $request->uploadedimg->move(public_path('uploads'), $image);
+        $BannerForm->img = 'uploads/' . $image;
         $BannerForm->save();
-        return view("Home.index");
+        // Retrieve existing cart data from the cookie
+        $cart = json_decode(request()->cookie('cart'), true) ?? [];
+
+        // Add the new item to the cart
+        $cart[] = [
+            'img' => $BannerForm->img,
+            'description' => $BannerForm->description,
+            'total' => $BannerForm->total,
+        ];
+
+        // Save the updated cart data in the cookie
+        $response = redirect()->route('Home.Cart')->withCookie(cookie('cart', json_encode($cart)));
+
+        return $response;
+
     }
     public function showOrdersPage()
     {

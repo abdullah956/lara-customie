@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{ URL::asset('css/Forms/bannerForm.css') }}">
-  <script src="{{ URL::asset('js/Forms/bannerForm.js') }}"></script>
+    <script src="{{ URL::asset('js/Forms/bannerForm.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -51,8 +51,8 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -62,8 +62,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Shirts</a></li>
@@ -71,8 +71,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -83,8 +83,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -93,8 +93,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -104,8 +104,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -134,8 +134,8 @@
             </div>
             <div class="sec4right">
 
-                <form method="post" action="{{route('Form.BannerSave')}}" enctype="multipart/form-data" class="sec4form"
-                    onsubmit="return validateForm()">
+                <form method="post" action="{{ route('Form.BannerSave') }}" enctype="multipart/form-data"
+                    class="sec4form" onsubmit="return validateForm()">
                     @csrf
                     <span id="fileerror" style="font-size: 1vw;"></span>
                     <input type="file" name="uploadedimg" id="uploadfile"
@@ -150,19 +150,21 @@
                         <p>Per Foot Price: Rs.25</p>
                     </div>
                     <div>
-                        <label for="width" style="margin-right: 2.2vw;">Width (ft)</label><input type="number"
-                            name="width" id="width" value="1" min="1" onchange="f();" required>
-
-
+                        <label for="width" style="margin-right: 2.2vw;">Width (ft)</label>
+                        <input type="number" name="width" id="width" value="1" min="1"
+                            onchange="updatePrice()" required>
                     </div>
                     <div>
-                        <label for="height" style="margin-right: 1.8vw;">Height (ft)</label><input type="number"
-                            name="height" id="height" value="1" min="1" onchange="f();" required>
-
+                        <label for="height" style="margin-right: 1.8vw;">Height (ft)</label>
+                        <input type="number" name="height" id="height" value="1" min="1"
+                            onchange="updatePrice()" required>
                     </div>
                     <div>
-                        <p style="margin-right: .8vw;">Price Rs.<span name="totalp" id="total">25</span></p>
-
+                        <p style="margin-right: .8vw;">Price Rs.
+                            <span>
+                                <input name='total' type="text" id="total" value="" readonly>
+                            </span>
+                        </p>
                     </div>
 
 
@@ -216,11 +218,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -234,8 +236,7 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
@@ -259,8 +260,26 @@
                     },
                 },
             ],
-        });
+        }); <
+    </script>
 
+    <script>
+        function updatePrice() {
+            // Get the values of width and height
+            var width = parseFloat(document.getElementById('width').value) || 0;
+            var height = parseFloat(document.getElementById('height').value) || 0;
+
+            // Assuming Rs.25 is the base price per foot
+            var basePrice = 25;
+
+            // Calculate the total price
+            var totalPrice = basePrice * width * height;
+
+            // Update the total input field
+            document.getElementById('total').value = totalPrice.toFixed(2);
+        }
+        // Assuming you are making an AJAX request to the server
+        // after submitting the form to save the banner data
     </script>
 </body>
 

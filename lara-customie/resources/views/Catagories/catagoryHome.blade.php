@@ -50,8 +50,8 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -61,8 +61,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Shirts</a></li>
@@ -70,8 +70,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -82,8 +82,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -92,8 +92,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -103,8 +103,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -180,18 +180,18 @@
                 <div class="card">
                     <img class="item-img" src="../imgs/Clock/c1.png">
                     <h1 class="item-title">Clock239</h1>
-                    <p  class="item-price">Rs19.99</p>
+                    <p class="item-price">Rs19.99</p>
                     <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
                     <img class="item-img" src="../imgs/Clock/c2.jpg">
-                    <h1 class="item-title" >Clock</h1>
+                    <h1 class="item-title">Clock</h1>
                     <p class="item-price">Rs19.99</p>
                     <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
                 <div class="card">
                     <img class="item-img" src="../imgs/Clock/c7.jpg">
-                    <h1 class="item-title" >Clock</h1>
+                    <h1 class="item-title">Clock</h1>
                     <p class="item-price">Rs19.99</p>
                     <button onclick="addToCart(this)">Add to Cart</button>
                 </div>
@@ -319,7 +319,7 @@
 
 
     <!--sec5 started-->
-    
+
     <!--footer started-->
     <footer>
         <div class="footerdiv">
@@ -354,11 +354,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
@@ -372,8 +372,7 @@
             speed: 300,
             slidesToShow: 3,
             slidesToScroll: 1,
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
@@ -398,55 +397,54 @@
                 },
             ],
         });
-  
-  </script>
-  <script>
-    // Function to handle 'Add to Cart' functionality
-    function addToCart(button) {
-        var clothCard = button.parentNode;
-    
-        var imgElement = clothCard.querySelector('.item-img');
-    
+    </script>
+    <script>
+        // Function to handle 'Add to Cart' functionality
+        function addToCart(button) {
+            var clothCard = button.parentNode;
 
-        var img = imgElement ? imgElement.getAttribute('src') : null;
-        var title = clothCard.querySelector('.item-title').innerText;
-        var price = clothCard.querySelector('.item-price').innerText;
+            var imgElement = clothCard.querySelector('.item-img');
 
-        var cartItem = {
-            img: img,
-            title: title,
-            price: price,
-            quantity: 1,
-        };
-        console.log('Adding to cart:', cartItem);
-        // Check if cart data exists in localStorage
-        var cartData = localStorage.getItem('cart');
-        if (!cartData) {
-            // If cart data doesn't exist, create an empty array
-            cartData = [];
-        } else {
-            // If cart data exists, parse it to an array
-            cartData = JSON.parse(cartData);
+
+            var img = imgElement ? imgElement.getAttribute('src') : null;
+            var title = clothCard.querySelector('.item-title').innerText;
+            var price = clothCard.querySelector('.item-price').innerText;
+
+            var cartItem = {
+                img: img,
+                title: title,
+                price: price,
+                quantity: 1,
+            };
+            console.log('Adding to cart:', cartItem);
+            // Check if cart data exists in localStorage
+            var cartData = localStorage.getItem('cart');
+            if (!cartData) {
+                // If cart data doesn't exist, create an empty array
+                cartData = [];
+            } else {
+                // If cart data exists, parse it to an array
+                cartData = JSON.parse(cartData);
+            }
+
+            // Check if the item already exists in the cart
+            var existingItem = cartData.find(item => item.title === title);
+
+            if (existingItem) {
+                // If the item already exists, show an alert and don't add it again
+                alert('Item already exists in the cart!');
+            } else {
+                // Add the new item to the cart
+                cartData.push(cartItem);
+
+                // Save the updated cart data to localStorage
+                localStorage.setItem('cart', JSON.stringify(cartData));
+
+                // Show a success alert
+                alert('Item added to cart!');
+            }
         }
-
-        // Check if the item already exists in the cart
-        var existingItem = cartData.find(item => item.title === title);
-
-        if (existingItem) {
-            // If the item already exists, show an alert and don't add it again
-            alert('Item already exists in the cart!');
-        } else {
-            // Add the new item to the cart
-            cartData.push(cartItem);
-
-            // Save the updated cart data to localStorage
-            localStorage.setItem('cart', JSON.stringify(cartData));
-
-            // Show a success alert
-            alert('Item added to cart!');
-        }
-    }
-</script>
+    </script>
 </body>
 
 </html>

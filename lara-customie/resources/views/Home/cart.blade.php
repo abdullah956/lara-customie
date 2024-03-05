@@ -135,6 +135,28 @@
 
 
         <section class="productscart">
+            <!-- Check if there is an item added to the cart -->
+            @php
+                $cart = json_decode(request()->cookie('cart'), true) ?? [];
+            @endphp
+
+            @if (count($cart) > 0)
+                <!-- Loop through cart items and create productDiv for each item -->
+                @foreach ($cart as $item)
+                    <div class="productdiv">
+                        <!-- Display item information in the div -->
+                        <span class="productdetails">
+                            <img src="{{ asset($item['img']) }}" alt="">
+                            <p class="productname">{{ $item['description'] }}</p>
+                        </span>
+                        <span>Rs <input name='total' type="text" value="{{ $item['total'] }}" readonly>
+                        </span>
+                        <input type="number" class="productquantity" value="1">
+                        <span class="producttotal">Rs.{{ number_format(25, 2) }}</span>
+                        <button type="button">X</button>
+                    </div>
+                @endforeach
+            @endif
 
 
             {{-- 
@@ -349,12 +371,43 @@
             }
 
             // Function to remove an item from the cart
+            // function removeFromCart(removeButton) {
+            //     var productDiv = removeButton.parentNode;
+            //     var productName = productDiv.querySelector('.productname').textContent;
+
+            //     // Retrieve cart data from localStorage
+            //     var cartData = localStorage.getItem('cart');
+
+            //     if (cartData) {
+            //         // If cart data exists, parse it to an array
+            //         var cartArray = JSON.parse(cartData);
+
+            //         // Find and remove the item from the cart array
+            //         cartArray = cartArray.filter(function(item) {
+            //             return item.title !== productName;
+            //         });
+
+            //         // Update the cart in localStorage
+            //         localStorage.setItem('cart', JSON.stringify(cartArray));
+
+            //         // Remove the productDiv from the cart container
+            //         cartContainer.removeChild(productDiv);
+
+            //         // Update the cart summary
+            //         updateCartSummary(cartArray);
+            //     }
+            // }
+            // Function to remove an item from the cart
+            // Function to remove an item from the cart
+            // Function to remove an item from the cart
             function removeFromCart(removeButton) {
                 var productDiv = removeButton.parentNode;
-                var productName = productDiv.querySelector('.productname').textContent;
+                var productName = productDiv.querySelector('.productname').textContent.trim();
 
                 // Retrieve cart data from localStorage
                 var cartData = localStorage.getItem('cart');
+
+                console.log('Original Cart Data:', cartData);
 
                 if (cartData) {
                     // If cart data exists, parse it to an array
@@ -362,19 +415,34 @@
 
                     // Find and remove the item from the cart array
                     cartArray = cartArray.filter(function(item) {
-                        return item.title !== productName;
+                        return item.title.trim() !== productName;
                     });
+
+                    console.log('Updated Cart Array:', cartArray);
 
                     // Update the cart in localStorage
                     localStorage.setItem('cart', JSON.stringify(cartArray));
+
+                    console.log('Updated Cart Data:', localStorage.getItem('cart'));
 
                     // Remove the productDiv from the cart container
                     cartContainer.removeChild(productDiv);
 
                     // Update the cart summary
                     updateCartSummary(cartArray);
+
+                    // Clear the specific cookie related to the cart
+                    document.cookie = 'cart=; max-age=0; path=/;';
+
+
+                    // You can also delete the cookie using the 'max-age' attribute
+                    // document.cookie = 'cart=; max-age=0; path=/;';
                 }
             }
+
+
+
+
 
             // Function to update quantity and recalculate total price in cart
             function updateQuantity(quantityInput) {

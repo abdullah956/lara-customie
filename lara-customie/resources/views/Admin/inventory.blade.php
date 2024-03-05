@@ -93,11 +93,12 @@
                     <thead class="table-dark bg-dark">
                         <tr>
                             <th scope="col">Image</th>
+                            <th scope="col">Product Category</th>
                             <th scope="col">Product Type</th>
                             <th scope="col">Name</th>
                             <th scope="col">Serial No.</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Category</th>
+
                             <th scope="col">Price</th>
                             <th scope="col">Remove</th>
                         </tr>
