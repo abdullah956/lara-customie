@@ -7,6 +7,7 @@ use App\Models\Checkout;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Crypt;
 
 class ProductController extends Controller
 {
@@ -157,35 +158,22 @@ class ProductController extends Controller
         return view('Admin.analytics', compact('totalOrders', 'totalPrice', 'orders', 'ordersChartData', 'earningsChartData', 'aovChartData'));
 
     }
-    public function saveBannerData(Request $request)
-    {
-        $BannerForm = new BannerForm();
-        $BannerForm->id = $request->id;
-        $BannerForm->img = $request->uploadedimg;
-        $BannerForm->description = $request->uploadedtext;
-        $BannerForm->width = $request->width;
-        $BannerForm->height = $request->height;
-        $BannerForm->total = $request->total;
-        $image = time() . '.' . $request->uploadedimg->extension();
-        $request->uploadedimg->move(public_path('uploads'), $image);
-        $BannerForm->img = 'uploads/' . $image;
-        $BannerForm->save();
-        // Retrieve existing cart data from the cookie
-        $cart = json_decode(request()->cookie('cart'), true) ?? [];
+    // public function saveBannerData(Request $request)
+    // {
+    //     $BannerForm = new BannerForm();
+    //     $BannerForm->id = $request->id;
+    //     $BannerForm->img = $request->uploadedimg;
+    //     $BannerForm->act_img = $request->actualimage;
+    //     $BannerForm->description = $request->uploadedtext;
+    //     $BannerForm->width = $request->width;
+    //     $BannerForm->height = $request->height;
+    //     $BannerForm->total = $request->total;
+    //     $image = time() . '.' . $request->uploadedimg->extension();
+    //     $request->uploadedimg->move(public_path('uploads'), $image);
+    //     $BannerForm->img = 'uploads/' . $image;
+    //     $BannerForm->save();
 
-        // Add the new item to the cart
-        $cart[] = [
-            'img' => $BannerForm->img,
-            'description' => $BannerForm->description,
-            'total' => $BannerForm->total,
-        ];
-
-        // Save the updated cart data in the cookie
-        $response = redirect()->route('Home.Cart')->withCookie(cookie('cart', json_encode($cart)));
-
-        return $response;
-
-    }
+    // }
     public function showOrdersPage()
     {
         // Fetch orders from the database
@@ -200,6 +188,14 @@ class ProductController extends Controller
 
         // Pass orders and chart data to the view
         return view('Admin.index', compact('totalOrders', 'totalPrice', 'orders'));
+    }
+    public function showcartitems($encryptedData)
+    {
+        $decryptedData = json_decode(Crypt::decrypt(base64_decode($encryptedData)), true);
+
+        // Pass the decrypted data to the view
+        return view('Home.cart', compact('decryptedData'));
+
     }
 
 }

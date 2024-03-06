@@ -130,13 +130,19 @@
     <center>
 
         <section class="sec4top">
-            <div class="sec4left"><img src="{{ asset($product->picture) }}" alt="" class="sec4img">
+
+
+
+            <div class="sec4left"><img name="actualimage" src="{{ asset($product->picture) }}" alt=""
+                    class="sec4img">
             </div>
             <div class="sec4right">
 
-                <form method="post" action="{{ route('Form.BannerSave') }}" enctype="multipart/form-data"
-                    class="sec4form" onsubmit="return validateForm()">
+                <form action="" class="sec4form">
                     @csrf
+
+
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <span id="fileerror" style="font-size: 1vw;"></span>
                     <input type="file" name="uploadedimg" id="uploadfile"
                         style="height: 2.8vw; width: 18vw; margin-left: 3vw;font-size: 1vw;">
@@ -170,7 +176,7 @@
 
 
                     <div class="sec4cart">
-                        <button type="submit" name="uploadedbtn">
+                        <button type="submit" name="uploadedbtn" onclick="addToCart()">
                             <img src="../imgs/Icons/Black/cartblack.png" alt="">
                             Add to Cart</button>
                     </div>
@@ -229,39 +235,6 @@
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        $(".slider").slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true,
-                    },
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    },
-                },
-            ],
-        }); <
-    </script>
 
     <script>
         function updatePrice() {
@@ -280,6 +253,37 @@
         }
         // Assuming you are making an AJAX request to the server
         // after submitting the form to save the banner data
+
+        function addToCart() {
+            // Capture form data
+            var actualImage = document.getElementsByName('actualimage')[0].src;
+            var serial = document.getElementsByName('product_id')[0].src;
+            var uploadedImage = document.getElementsByName('uploadedimg')[0].value;
+            var description = document.getElementsByName('uploadedtext')[0].value;
+            var height = parseFloat(document.getElementById('height').value) || 0;
+            var width = parseFloat(document.getElementById('width').value) || 0;
+            var total = document.getElementById('total').value;
+
+            // Create an object to store the data
+            var cartItem = {
+                actualImage: actualImage,
+                uploadedImage: uploadedImage,
+                description: description,
+                height: height,
+                width: width,
+                total: total,
+                serial: serial,
+                quantity: 1,
+            };
+
+            var encryptedData = btoa(JSON.stringify(cartItem));
+
+            // Store the encrypted data in local storage
+            localStorage.setItem('cartItem', encryptedData);
+
+            // Redirect to the cart page with the encrypted data as a parameter
+            window.location.href = '/Home.cart?' + encodeURIComponent(encryptedData);
+        }
     </script>
 </body>
 

@@ -123,53 +123,28 @@
     <!--Product Form started-->
     <!--MAIN SECTION AFTER NAVS-->
     <center>
+        <div class="container mt-5 cart-container">
+            <h2 class="mb-4">Shopping Cart</h2>
+
+            <!-- Product Cart Headings -->
+            <div class="cart-headings mb-1">
+                <div>Product</div>
+                <div>Your Design</div>
+                <div>Serial</div>
+                <div>Height</div>
+                <div>Width</div>
+                <div>Price</div>
+                <div>Quantity</div>
+                <div>Subtotal</div>
+                <div>Remove</div>
+            </div>
+
+            <div class="sh">
+
+            </div>
 
 
-        <div class="cartheading">
-            <p style="margin-left:1vw">PRODUCT DESCRIPTION</p>
-            <P>PRICE</P>
-            <P>QUANTITY</P>
-            <P>TOTAL</P>
-            <P>REMOVE</P>
         </div>
-
-
-        <section class="productscart">
-            <!-- Check if there is an item added to the cart -->
-            @php
-                $cart = json_decode(request()->cookie('cart'), true) ?? [];
-            @endphp
-
-            @if (count($cart) > 0)
-                <!-- Loop through cart items and create productDiv for each item -->
-                @foreach ($cart as $item)
-                    <div class="productdiv">
-                        <!-- Display item information in the div -->
-                        <span class="productdetails">
-                            <img src="{{ asset($item['img']) }}" alt="">
-                            <p class="productname">{{ $item['description'] }}</p>
-                        </span>
-                        <span>Rs <input name='total' type="text" value="{{ $item['total'] }}" readonly>
-                        </span>
-                        <input type="number" class="productquantity" value="1">
-                        <span class="producttotal">Rs.{{ number_format(25, 2) }}</span>
-                        <button type="button">X</button>
-                    </div>
-                @endforeach
-            @endif
-
-
-            {{-- 
-        <div class="productdiv">
-            <span class="productdetails"><img src="Clothingimgs/man-3-removebg-preview.png" alt=""><p class="productname">SHIRT</p></span>
-            <span class="productprice">$100</span>
-            <input type="number" class="productquantity" name="" id="" value="1">
-            <span class="producttotal">$300</span>
-            <button type="button">X</button>
-        </div> --}}
-
-
-        </section>
         <section class="cartsummary">
 
 
@@ -278,7 +253,8 @@
         });
     </script>
 
-    <script>
+
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize cart data only if it's not already present
             if (!localStorage.getItem('cart')) {
@@ -535,7 +511,7 @@
             });
             return parseFloat(subtotal.toFixed(2));
         }
-    </script>
+    </script> --}}
 
 </body>
 

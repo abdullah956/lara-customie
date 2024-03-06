@@ -71,85 +71,61 @@
     margin-left: 5vw;
   }
 
-  /*cart starteed*/
-  .productscart {
-    width: 60vw;
-    height: auto;
-    border: 1px solid rgb(210, 210, 210);
-    /* margin-top: 10vw; */
-  }
-  .cartheading {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vw 3vw;
-    margin-top: 10vw;
-    width: 60vw;
-    
-  }
-  .cartheading p {
-    margin-top: 1.4vw;
-    font-size: 1.4vw;
-  }
+    .product-cart {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+    }
   
-  .productdetails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .productdetails img {
-    width: 5vw;
-    height: 6vw;
-  }
   
-  .productname {
-    margin: 2vh;
-    font-size: 1.4vw;
-    width: 10vw;
-    text-align: left;
-  }
   
-  .productprice{
-    width: 10vw;
-    font-size: 1.4vw;
+    .product-cart img {
+      width: 7vw;
   
-  }
-  .productdiv {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: .5vw 5vw .5vw .5vw;
-    /* margin-top: 2vw; */
-    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
-    border-bottom: 1px solid rgb(218, 218, 218);
-  }
+    }
   
-  .productdiv input {
-    height: 2vw;
-    width: 4vw;
-    border: .5px solid rgb(210, 210, 210);
-    outline: none;
-    font-size: 1.4vw;
-  }
+    .product-cart button {
+      font-size: 1vw;
+    }
   
-  .producttotal{
-    font-size: 1.4vw;
-    width: 10vw;
-  }
+    .product-cart div {
+      font-size: 1.5vw;
+    }
   
-  .productdiv button {
-    padding: 0.25vw 0.75vw;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-size: 1.2vw;
-    /* font-weight: bold; */
-  }
+    .cart-headings {
+      background-color: black;
+      color: white;
+      padding-top: 15px;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5vw;
+      border-radius: 8px;
+      /* display: none; */
+    }
   
-  .productdiv span {
-    font-size: 1.4vw;
-  }
+    .cart-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+  
+    .product-cart input {
+      width: 70px;
+      /* height: 3vw; */
+      font-size: 1.6vw;
+      outline: none;
+      border: none;
+    }
+
+
+  /*cart summar startec*/
   
   .cartsummary {
     width: 35vw;

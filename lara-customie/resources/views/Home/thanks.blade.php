@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ URL::asset('css/Catagories/catagoryHome.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/Home/home.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -117,242 +117,25 @@
             </div>
         </nav>
     </section>
-
-    <!--section1 start-->
     <center>
-        <div class="catagoriesHeading">
-            <p><strong><b>Home Products</b></strong></p>
-        </div>
-    </center>
-    <center>
-        <section class="banner">
-            <div class="bannerleft">
-                <center>
-                    <p>
-                        <strong>
-                            "Empower Your Brand, Unleash Your Vision: Where Websites Become Your Canvas."
-                        </strong>
-                    </p>
-                    <p>
-                        Elevate your home with personalized perfection. Our website lets you customize furniture and
-                        decor to match your unique style. Create a space that tells your story, effortlessly blending
-                        functionality with flair.
-                    </p>
-                </center>
-            </div>
-            <div class="bannerright">
-                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../imgs/Clock/c2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../imgs/Cups/c3.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../imgs/Pillows/p4.jpg" class="d-block w-100" alt="...">
-                        </div>
+        <h1 style="margin-top: 8%">YOUR ORDER HAS BEEN PLACED</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/61/61222.png" alt=""
+            style="width: 10vw;margin-top:2%">
+        <p style="margin-top: 2%;font-size:2vw">Thank you for Shopping</p>
 
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
     </center>
 
-
-    <!--product section 1 -->
-    <center>
-        <section class="clock">
-            <div class="clockbanner">
-                <img src="../imgs/Clock/sidec1.jpg" alt="">
-            </div>
-            <div class="clockitems slider ">
-                <div class="card">
-                    <img class="item-img" src="../imgs/Clock/c1.png">
-                    <h1 class="item-title">Clock239</h1>
-                    <p class="item-price">Rs19000.99</p>
-                    <button onclick="addToCart(this)">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img class="item-img" src="../imgs/Clock/c2.jpg">
-                    <h1 class="item-title">Clock</h1>
-                    <p class="item-price">Rs19.99</p>
-                    <button onclick="addToCart(this)">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img class="item-img" src="../imgs/Clock/c7.jpg">
-                    <h1 class="item-title">Clock</h1>
-                    <p class="item-price">Rs19.99</p>
-                    <button onclick="addToCart(this)">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Clock/c3.jpg">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Clock/c4.jpg">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Clock/c5.jpg">
-                    <h1>Clock</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-
-            </div>
-        </section>
-    </center>
-
-
-    <!--product section 2 -->
-    <center>
-        <section class="pillow">
-            <div class="pillowitems slider ">
-                <div class="card">
-                    <img src="../imgs/Pillows/p1.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p2.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p3.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p4.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p5.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p6.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-
-            </div>
-            <div class="pillowbanner">
-                <img src="../imgs/Pillows/sidep1.jpg" alt="">
-            </div>
-        </section>
-    </center>
-
-    <!--product section 1 -->
-    {{-- <center>
-        <section class="cup">
-            <div class="cupbanner">
-                <img src="../imgs/Cups/sidec2.jpg" alt="">
-            </div>
-            <div class="cupitems slider ">
-                <div class="card">
-                    <img src="../imgs/Cups/c2.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c3.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c1.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c4.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c5.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c6.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-
-            </div>
-        </section>
-    </center> --}}
-    <center>
-        <section class="cup">
-            <div class="cupbanner">
-                <img src="../imgs/Cups/sidec2.jpg" alt="">
-            </div>
-            <div class="cupitems slider">
-                @foreach ($products['cups'] as $cup)
-                    <div class="card">
-                        <img src="{{ $cup->picture }}" alt="{{ $cup->name }}">
-                        <h1>{{ $cup->name }}</h1>
-                        <p class="price">${{ $cup->price }}</p>
-                        <form action="{{ route('banners.page') }}" method="GET">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $cup->id }}">
-                            <button type="submit" class="btn btn-primary">Use Design</button>
-                        </form>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-    </center>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--sec5 started-->
-
-    <!--footer started-->
     <footer>
         <div class="footerdiv">
-            <h3 class="footerheading">Customie PK</h3>
+            <h3 class="footerheading"
+                style="
+                padding-top: 10vh;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 3vw;
+                text-decoration: underline;
+                color: rgb(224, 224, 224);
+              ">
+                Customie PK</h3>
             <p class="footerdiscription">
                 At Custom Cafe, we believe that everyone deserves to have unique and memorable products. That's
                 why we offer a wide range of customizable products, from clothing and accessories to home décor
@@ -382,6 +165,7 @@
         </p>
     </footer>
 
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
@@ -395,11 +179,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        $(".slider").slick({
+        $(".container").slick({
             dots: true,
             infinite: true,
             speed: 300,
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [{
                     breakpoint: 1024,
@@ -413,22 +197,19 @@
                 {
                     breakpoint: 600,
                     settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
                     },
                 },
                 {
                     breakpoint: 480,
                     settings: {
-                        slidesToShow: 3,
+                        slidesToShow: 1,
                         slidesToScroll: 1,
                     },
                 },
             ],
         });
-    </script>
-    <script>
-        // Function to handle 'Add to Cart' functionality
     </script>
 </body>
 

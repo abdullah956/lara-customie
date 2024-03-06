@@ -52,7 +52,7 @@ class StripeController extends Controller
             return redirect()->away($session->url);
         }
         // If the payment method is not 'banktransfer,' redirect to home.index
-        return view("Home.index");
+        return view("Home.thanks");
     }
 
 }

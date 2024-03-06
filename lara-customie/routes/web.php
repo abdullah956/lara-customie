@@ -20,6 +20,9 @@ use App\Http\Controllers\StripeController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/success', function () {
+    return view('Home.thanks');
+})->name('suc');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/signup', [SignUpController::class, 'insertSignUp'])->name('Form.SignUp');
 Route::post('/Home', [SignUpController::class, 'storeSignUp'])->name('Form.StoreSignUp');
@@ -41,7 +44,7 @@ Route::get('/banners/page', [ProductController::class, 'showPage'])->name('banne
 
 Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
 
-Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
+// Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
 Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
 
 Route::get('/admin', [ProductController::class, 'showOrdersPage'])->name('orders');
@@ -50,3 +53,5 @@ Route::get('/inventory', [ProductController::class, 'inventory'])->name('invento
 Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');
 Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/showcart', [ProductController::class, 'showcartitems'])->name('showcartitems');
