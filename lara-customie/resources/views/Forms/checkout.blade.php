@@ -148,9 +148,6 @@
             </div>
         </div>
 
-        <!-- Add any additional checkout information or form elements here -->
-
-        <!-- ... (your existing HTML content) ... -->
     </div>
     <!--section1 start-->
     <!--checkout Form started-->

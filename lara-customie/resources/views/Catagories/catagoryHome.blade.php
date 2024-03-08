@@ -327,7 +327,7 @@
                         <p class="price">${{ $cup->price }}</p>
                         <form action="{{ route('banners.page') }}" method="GET">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $cup->id }}">
+                            <input type="text" name="product_id" value="{{ $cup->serial_no }}">
                             <button type="submit" class="btn btn-primary">Use Design</button>
                         </form>
                     </div>
