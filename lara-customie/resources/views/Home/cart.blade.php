@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Document</title>
     <link rel="stylesheet" href="{{ URL::asset('css/Home/cart.css') }}">
 
@@ -146,11 +148,13 @@
         <!-- Display product items dynamically -->
         @foreach ($cartItems as $item)
             <div class="row cart-item mb-2 border border-secondary rounded p-2">
+                <input type="hidden" name="" id="" value="{{ $item['random'] }}">
                 <div class="col d-flex align-items-center">{{ $item['product_id'] }}</div>
                 <div class="col"><img src="{{ asset($item['actualImage']) }}" alt="Actual Design"
                         style="max-width: 6vw;max-height:6vw"></div>
                 <div class="col"><img src="{{ asset(Storage::url($item['uploadedImagePath'])) }}"
                         alt="Uploaded Image" style="max-width: 6vw;max-height-6vw"></div>
+
                 <div class="col  d-flex align-items-center">{{ $item['total'] }}</div>
                 <div class="col  d-flex align-items-center ">{{ $item['height'] }}</div>
                 <div class="col  d-flex align-items-center">{{ $item['width'] }}</div>
@@ -171,7 +175,8 @@
                     <span class="subtotal">{{ $item['total'] }}</span>
                 </div>
                 <div class="col  d-flex align-items-center">
-                    <a href="" class="btn btn-danger btn-sm">Remove</a>
+                    <button class="btn btn-danger btn-sm remove-item"
+                        data-random-number="{{ $item['random'] }}">Remove</button>
                 </div>
             </div>
         @endforeach
@@ -253,6 +258,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // document.body.addEventListener('click', function(event) {
+            //     // Check if the clicked element has the class 'remove-item'
+            //     if (event.target.classList.contains('remove-item')) {
+            //         event.preventDefault();
+
+            //         // Find the closest parent with class 'cart-item' and remove it from the DOM
+            //         const cartItem = event.target.closest('.cart-item');
+            //         if (cartItem) {
+            //             cartItem.remove();
+            //             updateTotal(); // Update the total after removing the item
+            //         }
+            //     }
+            // });
+
+
             // Get all quantity input fields
             const quantityInputs = document.querySelectorAll('.quantity-input');
 
@@ -369,6 +389,121 @@
             }
         });
     </script>
+
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to remove a product from the cart
+
+
+            // ... (rest of your existing code) ...
+
+
+
+            // Attach the onPageLoad function to the onload event of the window
+            function removeItem(productId) {
+                // Send an AJAX request to the server to remove the product
+                // Replace the URL with the actual endpoint for removing a product from the cart
+                fetch(`/remove-product/${productId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                'content'),
+                        },
+                    })
+
+                    .then(response => {
+                        if (response.ok) {
+                            // If the server successfully removes the product, update the UI
+                            console.log('Product removed:', productId);
+
+                            // Find the corresponding cart item and remove it from the DOM
+                            const cartItem = document.querySelector(
+                                `.cart-item[data-product-id="${productId}"]`);
+                            if (cartItem) {
+                                cartItem.remove();
+                                updateTotal(); // Update the total after removing the item
+                            }
+                        } else {
+                            // Handle error cases
+                            console.error('Failed to remove product:', response.statusText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error.message);
+                    });
+
+                location.reload();
+            }
+
+            // Add click event listener to each "Remove" button
+            const removeButtons = document.querySelectorAll('.remove-item');
+            removeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const productId = this.dataset.itemId;
+                    removeItem(productId);
+                });
+            });
+
+
+        });
+
+        // ... (rest of your existing code) ...
+    </script> --}}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function removeItem(randomNumber) {
+                // Send an AJAX request to the server to remove the product
+                // Replace the URL with the actual endpoint for removing a product from the cart
+                console.log(randomNumber);
+                fetch(`/remove-product/${randomNumber}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                                'content'),
+                        },
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // If the server successfully removes the product, update the UI
+                            console.log('Product removed:', randomNumber);
+
+                            // Find the corresponding cart item and remove it from the DOM
+                            const cartItem = document.querySelector(
+                                `.cart-item[data-random-number="${randomNumber}"]`);
+                            if (cartItem) {
+                                cartItem.remove();
+                                updateTotal(); // Update the total after removing the item
+                            }
+                        } else {
+                            // Handle error cases
+                            console.error('Failed to remove product:', response.statusText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error.message);
+                    });
+
+                location.reload();
+            }
+
+            // Add click event listener to each "Remove" button
+            const removeButtons = document.querySelectorAll('.remove-item');
+            removeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const randomNumber = this.dataset.randomNumber;
+                    removeItem(randomNumber);
+                });
+            });
+
+            // ... (rest of your existing code) ...
+        });
+    </script>
+
+
+
 </body>
 
 </html>

@@ -60,3 +60,4 @@ Route::post('/bannertocart', [ProductController::class, 'store'])->name('cart.st
 Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
 
 Route::post('/checkout', [ProductController::class, 'cartToCheckout'])->name('checkout.index');
+Route::delete('/remove-product/{randomNumber}', [ProductController::class, 'removeProduct']);

@@ -272,7 +272,7 @@ class ProductController extends Controller
         // Move the uploaded file to the storage directory
         $path = $uploadedImage->store('public/uploads');
         Storage::setVisibility($path, 'public');
-
+        $randomNumber = mt_rand(1, 9999);
         $cartItem = [
             'product_id' => $product_id,
             'uploadedtext' => $uploadedtext,
@@ -281,6 +281,7 @@ class ProductController extends Controller
             'total' => $total,
             'actualImage' => $actualImage,
             'uploadedImagePath' => $path,
+            'random' => $randomNumber,
             // Store the path instead of UploadedFile instance
         ];
 
@@ -293,72 +294,14 @@ class ProductController extends Controller
 
     public function cart(Request $request)
     {
-        // Retrieve cart items from the session
         $cartItems = $request->session()->get('cart', []);
 
         return view('Home.cart', compact('cartItems'));
     }
-
-
-    // public function cartToCheckout(Request $request)
-    // {
-    //     // Retrieve the cart data and total from the request
-    //     $cartItems = json_decode($request->input('cartItems'), true);
-    //     $total = $request->input('total');
-    //     $quantities = json_decode($request->input('quantity'), true);
-
-    //     // Perform any additional logic for the checkout process
-    //     // For example, you might want to save the order to the database, etc.
-
-    //     // Pass the data to the checkout view
-    //     dd($quantities);
-    //     return view('Forms.checkout', compact('cartItems', 'total', 'quantities'));
-    // }
-    // public function cartToCheckout(Request $request)
-    // {
-    //     // Retrieve the cart data and total from the request
-    //     $cartItems = json_decode($request->input('cartItems'), true);
-    //     $total = $request->input('total');
-    //     dd($cartItems, $total);
-
-    //     // Perform any additional logic for the checkout process
-    //     // For example, you might want to save the order to the database, etc.
-
-    //     // Access the quantity for each item
-    //     foreach ($cartItems as $cartItem) {
-    //         $productId = $cartItem['product_id'];
-    //         $quantity = $cartItem['quantity'];
-    //         $height = $cartItem['height'];
-    //         $width = $cartItem['width'];
-    //         $subtotal = $cartItem['total']; // Assuming 'total' is your subtotal value
-    //         $actualImage = $cartItem['actualImage'];
-    //         $uploadedImage = Storage::url($cartItem['uploadedImagePath']);
-    //         // ... and other fields
-
-    //         // Perform any logic based on product ID, quantity, height, width, actualImage, uploadedImage, subtotal, etc.
-    //         // For example, save to the database or perform calculations
-    //     }
-
-
-    //     // dd($cartItems);
-
-    //     // Pass the data to the checkout view
-    //     return view('Forms.checkout', compact('cartItems', 'total'));
-    // }
-
-
     public function cartToCheckout(Request $request)
     {
-        // Retrieve the cart data and total from the request
         $cartItems = json_decode($request->input('cartItems'), true);
         $total = $request->input('total');
-
-        // Perform any additional logic for the checkout process
-        // For example, you might want to save the order to the database, etc.
-
-        // dd($cartItems);
-
-        // Access the quantity for each item
         foreach ($cartItems as $cartItem) {
             $productId = $cartItem['product_id'];
             $quantity = $cartItem['quantity'];
@@ -368,15 +311,30 @@ class ProductController extends Controller
             $actualImage = $cartItem['actual_image'];
             $uploadedImage = $cartItem['uploaded_image'];
             $price = $cartItem['price'];
-
-            // Perform any logic based on product ID, quantity, height, width, actualImage, uploadedImage, subtotal, etc.
-            // For example, save to the database or perform calculations
         }
-
-
-        // Pass the data to the checkout view
         return view('Forms.checkout', compact('cartItems', 'total'));
     }
+
+    public function removeProduct($randomNumber)
+    {
+        // Retrieve the cart items from the session
+        $cartItems = session()->get('cart', []);
+
+        // Find the index of the item to remove based on the random number
+        $index = array_search($randomNumber, array_column($cartItems, 'random'));
+
+        // Remove the item if found
+        if ($index !== false) {
+            unset($cartItems[$index]);
+
+            // Update the session with the modified cart items
+            session(['cart' => array_values($cartItems)]);
+        }
+
+        // You can return a response if needed
+        return response()->json(['success' => true]);
+    }
+
 }
 
 
