@@ -193,6 +193,7 @@ class ProductController extends Controller
         $total = $request->input('total');
         foreach ($cartItems as $cartItem) {
             $productId = $cartItem['product_id'];
+            $uploadedtext = $cartItem['uploadedtext'];
             $quantity = $cartItem['quantity'];
             $height = $cartItem['height'];
             $width = $cartItem['width'];

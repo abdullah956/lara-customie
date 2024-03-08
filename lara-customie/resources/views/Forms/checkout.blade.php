@@ -129,8 +129,9 @@
                     @foreach ($cartItems as $item)
                         <li>
                             Product ID: {{ $item['product_id'] }},
-                            {{-- Quantity: {{ $item['quantity'] }}, --}}
+
                             Quantity: {{ $item['quantity'] }},
+                            Text: {{ $item['uploadedtext'] }},
                             Height: {{ $item['height'] }} (in cm),
                             Width: {{ $item['width'] }} (in cm),
                             Actual Image: <img src="{{ asset($item['actual_image']) }}" alt="Actual Design"

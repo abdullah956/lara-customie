@@ -199,7 +199,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <input type="text" name="product_id" value="{{ $product->serial_no }}">
+                        <input type="hidden" name="product_id" value="{{ $product->serial_no }}">
                         <div class="mb-3">
                             <label for="uploadfile" class="form-label">Upload Image</label>
                             <input type="file" name="uploadedimg" id="uploadfile" class="form-control"

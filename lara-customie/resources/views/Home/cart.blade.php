@@ -154,7 +154,6 @@
                         style="max-width: 6vw;max-height:6vw"></div>
                 <div class="col"><img src="{{ asset(Storage::url($item['uploadedImagePath'])) }}"
                         alt="Uploaded Image" style="max-width: 6vw;max-height-6vw"></div>
-
                 <div class="col  d-flex align-items-center">{{ $item['total'] }}</div>
                 <div class="col  d-flex align-items-center ">{{ $item['height'] }}</div>
                 <div class="col  d-flex align-items-center">{{ $item['width'] }}</div>
@@ -165,6 +164,7 @@
                         name="quantity" id="quantityInput" data-price="{{ $item['total'] }}"
                         data-product-id="{{ $item['product_id'] }}"
                         data-actual-image="{{ asset($item['actualImage']) }}"
+                        data-uploadedtext="{{ $item['uploadedtext'] }}"
                         data-uploaded-image="{{ asset(Storage::url($item['uploadedImagePath'])) }}"
                         data-height="{{ $item['height'] }}" data-width="{{ $item['width'] }}">
                 </div>
@@ -283,7 +283,7 @@
                     const quantity = parseInt(this.value);
                     const price = parseFloat(this.dataset.price);
                     const productId = this.dataset.productId;
-
+                    const uploadedtext = this.dataset.uploadedtext;
                     const actualImage = this.dataset.actualImage ? this.dataset.actualImage : '';
                     const uploadedImage = this.dataset.uploadedImage ? this.dataset.uploadedImage :
                         '';
@@ -345,6 +345,7 @@
                         quantity: parseInt(input.value),
                         actual_image: input.dataset.actualImage,
                         uploaded_image: input.dataset.uploadedImage,
+                        uploadedtext: input.dataset.uploadedtext,
                         height: input.dataset.height,
                         width: input.dataset.width,
                         price: parseFloat(input.dataset.price),
