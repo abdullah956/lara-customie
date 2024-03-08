@@ -33,7 +33,7 @@ Route::group(['middleware' => ['authCheck']], function () {
 });
 
 //checkout
-Route::get('/checkout', [ProductController::class, 'showCheckoutPage'])->name('Form.Checkout');
+//Route::get('/checkout', [ProductController::class, 'showCheckoutPage'])->name('Form.Checkout');
 Route::post('/checkoutProduct', [ProductController::class, 'checkoutProduct'])->name('Form.CheckoutProduct');
 //img product
 Route::get('/banner', [ProductController::class, 'bannerForm'])->name('Form.Banner');
@@ -54,4 +54,9 @@ Route::get('/analytics', [ProductController::class, 'analytics'])->name('analyti
 Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
-Route::get('/showcart', [ProductController::class, 'showcartitems'])->name('showcartitems');
+Route::get('/showcartitems', [ProductController::class, 'showcartitems'])->name('showcartitems');
+
+Route::post('/bannertocart', [ProductController::class, 'store'])->name('cart.store');
+Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
+
+Route::post('/checkout', [ProductController::class, 'cartToCheckout'])->name('checkout.index');

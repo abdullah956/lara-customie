@@ -119,7 +119,39 @@
             </div>
         </nav>
     </section>
+    <div class="container mt-5">
+        <h2>Checkout Summary</h2>
 
+        <div class="row">
+            <div class="col">
+                <h4>Cart Items</h4>
+                <ul>
+                    @foreach ($cartItems as $item)
+                        <li>
+                            Product ID: {{ $item['product_id'] }},
+                            {{-- Quantity: {{ $item['quantity'] }}, --}}
+                            Quantity: {{ $item['quantity'] }},
+                            Height: {{ $item['height'] }} (in cm),
+                            Width: {{ $item['width'] }} (in cm),
+                            Actual Image: <img src="{{ asset($item['actual_image']) }}" alt="Actual Design"
+                                style="max-width: 6vw; max-height: 6vw">
+                            User Design: <img src="{{ asset($item['uploaded_image']) }}" alt="Uploaded Image"
+                                style="max-width: 6vw; max-height: 6vw">
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div class="col">
+                <h4>Total</h4>
+                <p>Total Amount: ${{ $total }}</p>
+            </div>
+        </div>
+
+        <!-- Add any additional checkout information or form elements here -->
+
+        <!-- ... (your existing HTML content) ... -->
+    </div>
     <!--section1 start-->
     <!--checkout Form started-->
     <section class="sec4">
@@ -268,7 +300,3 @@
 </body>
 
 </html>
-
-<!--
-
--->

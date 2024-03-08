@@ -127,20 +127,18 @@
         </div>
     </center>
 
-    <center>
-
+    {{-- <center>
+        <!-- Product details section -->
         <section class="sec4top">
 
-
-
-            <div class="sec4left"><img name="actualimage" src="{{ asset($product->picture) }}" alt=""
-                    class="sec4img">
-            </div>
             <div class="sec4right">
-
-                <form action="" class="sec4form">
+                <form action="{{ route('cart.store') }}" method="post" class="sec4form" id="orderSummaryForm"
+                    enctype="multipart/form-data">
                     @csrf
 
+                    <div class="sec4left">
+                        <img name="actualimage" src="{{ asset($product->picture) }}" alt="" class="sec4img">
+                    </div>
 
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <span id="fileerror" style="font-size: 1vw;"></span>
@@ -148,7 +146,6 @@
                         style="height: 2.8vw; width: 18vw; margin-left: 3vw;font-size: 1vw;">
 
                     <div>
-
                         <p>Please Enter The Description</p>
                         <textarea id="" cols="40" rows="3" name="uploadedtext" required></textarea>
                     </div>
@@ -173,17 +170,97 @@
                         </p>
                     </div>
 
+                    <!-- Existing form fields or additional fields can be added here -->
 
+                    <input type="hidden" id="orderSummaryJson" name="orderSummaryJson" value="">
 
                     <div class="sec4cart">
-                        <button type="submit" name="uploadedbtn" onclick="addToCart()">
+                        <button type="submit" name="uploadedbtn">
                             <img src="../imgs/Icons/Black/cartblack.png" alt="">
-                            Add to Cart</button>
+                            Add to Cart
+                        </button>
                     </div>
                 </form>
             </div>
         </section>
-    </center>
+    </center> --}}
+
+    <section class="sec4top">
+        <div class="container thick-border border border-3">
+            <form action="{{ route('cart.store') }}" method="post" class="sec4form needs-validation"
+                id="orderSummaryForm" enctype="multipart/form-data" novalidate>
+                @csrf
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="sec4left mb-3">
+                            <img name="actualimage" src="{{ asset($product->picture) }}" alt=""
+                                class="sec4img img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <div class="mb-3">
+                            <label for="uploadfile" class="form-label">Upload Image</label>
+                            <input type="file" name="uploadedimg" id="uploadfile" class="form-control"
+                                style="height: 2.8vw;" required>
+                            <div class="invalid-feedback">
+                                Please choose a file.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="uploadedtext" class="form-label">Description</label>
+                            <textarea class="form-control" id="uploadedtext" name="uploadedtext" cols="40" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a description.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p>Per Foot Price: {{ $product->price }}</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="width" class="form-label">Width (ft)</label>
+                            <input type="number" name="width" id="width" class="form-control" value="1"
+                                min="1" onchange="updatePrice()" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid width.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="height" class="form-label">Height (ft)</label>
+                            <input type="number" name="height" id="height" class="form-control" value="1"
+                                min="1" onchange="updatePrice()" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid height.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="mb-2">Price Rs.</p>
+                            <input name='total' type="text" id="total" class="form-control" value=""
+                                readonly>
+                        </div>
+
+                        <!-- Existing form fields or additional fields can be added here -->
+
+                        <input type="hidden" id="orderSummaryJson" name="orderSummaryJson" value="">
+
+                        <div class="mb-3 sec4cart">
+                            <button type="submit" name="uploadedbtn" class="btn btn-dark">
+                                {{-- <img src="../imgs/Icons/Black/cartblack.png" alt="" class="me-2"> --}}
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
 
 
     <!---->
@@ -242,8 +319,8 @@
             var width = parseFloat(document.getElementById('width').value) || 0;
             var height = parseFloat(document.getElementById('height').value) || 0;
 
-            // Assuming Rs.25 is the base price per foot
-            var basePrice = 25;
+            // Get the base price from the server or set a default value
+            var basePrice = parseFloat("{{ $product->price }}") || 0;
 
             // Calculate the total price
             var totalPrice = basePrice * width * height;
@@ -251,39 +328,13 @@
             // Update the total input field
             document.getElementById('total').value = totalPrice.toFixed(2);
         }
+        window.addEventListener('load', function() {
+            // Call the updatePrice function on window load
+            updatePrice();
+        });
+
         // Assuming you are making an AJAX request to the server
         // after submitting the form to save the banner data
-
-        function addToCart() {
-            // Capture form data
-            var actualImage = document.getElementsByName('actualimage')[0].src;
-            var serial = document.getElementsByName('product_id')[0].src;
-            var uploadedImage = document.getElementsByName('uploadedimg')[0].value;
-            var description = document.getElementsByName('uploadedtext')[0].value;
-            var height = parseFloat(document.getElementById('height').value) || 0;
-            var width = parseFloat(document.getElementById('width').value) || 0;
-            var total = document.getElementById('total').value;
-
-            // Create an object to store the data
-            var cartItem = {
-                actualImage: actualImage,
-                uploadedImage: uploadedImage,
-                description: description,
-                height: height,
-                width: width,
-                total: total,
-                serial: serial,
-                quantity: 1,
-            };
-
-            var encryptedData = btoa(JSON.stringify(cartItem));
-
-            // Store the encrypted data in local storage
-            localStorage.setItem('cartItem', encryptedData);
-
-            // Redirect to the cart page with the encrypted data as a parameter
-            window.location.href = '/Home.cart?' + encodeURIComponent(encryptedData);
-        }
     </script>
 </body>
 

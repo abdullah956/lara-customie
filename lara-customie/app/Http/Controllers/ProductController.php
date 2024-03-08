@@ -7,7 +7,11 @@ use App\Models\Checkout;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
+
+
+use App\Http\Controllers\localStorage;
+
 
 class ProductController extends Controller
 {
@@ -189,14 +193,195 @@ class ProductController extends Controller
         // Pass orders and chart data to the view
         return view('Admin.index', compact('totalOrders', 'totalPrice', 'orders'));
     }
-    public function showcartitems($encryptedData)
+    public function showcartitems(Request $request)
     {
-        $decryptedData = json_decode(Crypt::decrypt(base64_decode($encryptedData)), true);
+        // Validate the form data if needed
+        $request->validate([
+            'orderSummaryJson' => 'required|string',
+            // Add more validation rules if needed
+        ]);
 
-        // Pass the decrypted data to the view
-        return view('Home.cart', compact('decryptedData'));
+        // Retrieve the order summary data from the form
+        $orderSummaryJson = $request->input('orderSummaryJson');
 
+        // Decode the JSON data
+        $orderSummaryData = json_decode($orderSummaryJson, true);
+        // dd($orderSummaryData);
+
+        // Pass the order summary data to the checkout view
+        return view('Home.cart', ['orderSummaryData' => $orderSummaryData]);
     }
 
+    // public function store(Request $request)
+    // {
+    //     // Retrieve and process the form data
+    //     $product_id = $request->input('product_id');
+    //     $uploadedtext = $request->input('uploadedtext');
+    //     $width = $request->input('width');
+    //     $height = $request->input('height');
+    //     $total = $request->input('total');
+    //     // Retrieve the actual image from the product (assuming 'picture' is the attribute name)
+    //     $product = Product::find($product_id);
+    //     $actualImage = $product->picture;
+
+    //     // Retrieve the uploaded image file
+    //     $uploadedImage = $request->file('uploadedimg');
+    //     // Move the uploaded file to the storage directory
+    //     $path = $uploadedImage->store('public/uploads');
+    //     Storage::setVisibility($path, 'public');
+
+
+
+    //     // Add the data to the cart or perform any other necessary actions
+
+    //     // Use compact to send data to the 'cart' view
+    //     return view(
+    //         'Home.cart',
+    //         compact(
+    //             'product_id',
+    //             'uploadedtext',
+    //             'width',
+    //             'height',
+    //             'total',
+    //             'actualImage',
+    //             'uploadedImage',
+    //             'path',
+
+
+    //         )
+
+    //     );
+    // }
+
+    public function store(Request $request)
+    {
+        // Retrieve and process the form data
+        $product_id = $request->input('product_id');
+        $uploadedtext = $request->input('uploadedtext');
+        $width = $request->input('width');
+        $height = $request->input('height');
+        $total = $request->input('total');
+
+        // Retrieve the actual image from the product (assuming 'picture' is the attribute name)
+        $product = Product::find($product_id);
+        $actualImage = $product->picture;
+
+        // Retrieve the uploaded image file
+        $uploadedImage = $request->file('uploadedimg');
+
+        // Move the uploaded file to the storage directory
+        $path = $uploadedImage->store('public/uploads');
+        Storage::setVisibility($path, 'public');
+
+        $cartItem = [
+            'product_id' => $product_id,
+            'uploadedtext' => $uploadedtext,
+            'width' => $width,
+            'height' => $height,
+            'total' => $total,
+            'actualImage' => $actualImage,
+            'uploadedImagePath' => $path,
+            // Store the path instead of UploadedFile instance
+        ];
+
+        // Add the cart item to the session
+        $request->session()->push('cart', $cartItem);
+
+        // Redirect to the cart view
+        return redirect()->route('cart');
+    }
+
+    public function cart(Request $request)
+    {
+        // Retrieve cart items from the session
+        $cartItems = $request->session()->get('cart', []);
+
+        return view('Home.cart', compact('cartItems'));
+    }
+
+
+    // public function cartToCheckout(Request $request)
+    // {
+    //     // Retrieve the cart data and total from the request
+    //     $cartItems = json_decode($request->input('cartItems'), true);
+    //     $total = $request->input('total');
+    //     $quantities = json_decode($request->input('quantity'), true);
+
+    //     // Perform any additional logic for the checkout process
+    //     // For example, you might want to save the order to the database, etc.
+
+    //     // Pass the data to the checkout view
+    //     dd($quantities);
+    //     return view('Forms.checkout', compact('cartItems', 'total', 'quantities'));
+    // }
+    // public function cartToCheckout(Request $request)
+    // {
+    //     // Retrieve the cart data and total from the request
+    //     $cartItems = json_decode($request->input('cartItems'), true);
+    //     $total = $request->input('total');
+    //     dd($cartItems, $total);
+
+    //     // Perform any additional logic for the checkout process
+    //     // For example, you might want to save the order to the database, etc.
+
+    //     // Access the quantity for each item
+    //     foreach ($cartItems as $cartItem) {
+    //         $productId = $cartItem['product_id'];
+    //         $quantity = $cartItem['quantity'];
+    //         $height = $cartItem['height'];
+    //         $width = $cartItem['width'];
+    //         $subtotal = $cartItem['total']; // Assuming 'total' is your subtotal value
+    //         $actualImage = $cartItem['actualImage'];
+    //         $uploadedImage = Storage::url($cartItem['uploadedImagePath']);
+    //         // ... and other fields
+
+    //         // Perform any logic based on product ID, quantity, height, width, actualImage, uploadedImage, subtotal, etc.
+    //         // For example, save to the database or perform calculations
+    //     }
+
+
+    //     // dd($cartItems);
+
+    //     // Pass the data to the checkout view
+    //     return view('Forms.checkout', compact('cartItems', 'total'));
+    // }
+
+
+    public function cartToCheckout(Request $request)
+    {
+        // Retrieve the cart data and total from the request
+        $cartItems = json_decode($request->input('cartItems'), true);
+        $total = $request->input('total');
+
+        // Perform any additional logic for the checkout process
+        // For example, you might want to save the order to the database, etc.
+
+        // dd($cartItems);
+
+        // Access the quantity for each item
+        foreach ($cartItems as $cartItem) {
+            $productId = $cartItem['product_id'];
+            $quantity = $cartItem['quantity'];
+            $height = $cartItem['height'];
+            $width = $cartItem['width'];
+            $subtotal = $cartItem['subtotal'];
+            $actualImage = $cartItem['actual_image'];
+            $uploadedImage = $cartItem['uploaded_image'];
+            $price = $cartItem['price'];
+
+            // Perform any logic based on product ID, quantity, height, width, actualImage, uploadedImage, subtotal, etc.
+            // For example, save to the database or perform calculations
+        }
+
+
+        // Pass the data to the checkout view
+        return view('Forms.checkout', compact('cartItems', 'total'));
+    }
 }
+
+
+
+
+
+
 

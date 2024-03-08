@@ -122,54 +122,86 @@
     <!--section1 start-->
     <!--Product Form started-->
     <!--MAIN SECTION AFTER NAVS-->
-    <center>
-        <div class="container mt-5 cart-container">
-            <h2 class="mb-4">Shopping Cart</h2>
-
-            <!-- Product Cart Headings -->
-            <div class="cart-headings mb-1">
-                <div>Product</div>
-                <div>Your Design</div>
-                <div>Serial</div>
-                <div>Height</div>
-                <div>Width</div>
-                <div>Price</div>
-                <div>Quantity</div>
-                <div>Subtotal</div>
-                <div>Remove</div>
-            </div>
-
-            <div class="sh">
-
-            </div>
 
 
+
+    <!-- ... (previous code) ... -->
+
+
+
+
+    <div class="container mt-5 cart-container p-5">
+        <div class="cart-headings mb-3 p-2">
+            <div class="col">ID</div>
+            <div class="col">Actual Design</div>
+            <div class="col">User Design</div>
+            <div class="col">Price</div>
+            <div class="col">Height</div>
+            <div class="col">Width</div>
+            <div class="col">Quantity</div>
+            <div class="col">Subtotal</div>
+            <div class="col">Remove</div>
         </div>
-        <section class="cartsummary">
 
+        <!-- Display product items dynamically -->
+        @foreach ($cartItems as $item)
+            <div class="row cart-item mb-2 border border-secondary rounded p-2">
+                <div class="col d-flex align-items-center">{{ $item['product_id'] }}</div>
+                <div class="col"><img src="{{ asset($item['actualImage']) }}" alt="Actual Design"
+                        style="max-width: 6vw;max-height:6vw"></div>
+                <div class="col"><img src="{{ asset(Storage::url($item['uploadedImagePath'])) }}"
+                        alt="Uploaded Image" style="max-width: 6vw;max-height-6vw"></div>
+                <div class="col  d-flex align-items-center">{{ $item['total'] }}</div>
+                <div class="col  d-flex align-items-center ">{{ $item['height'] }}</div>
+                <div class="col  d-flex align-items-center">{{ $item['width'] }}</div>
+                <div class="col  d-flex align-items-center">
+                    <!-- Placeholder for Quantity -->
+                    <!-- You can replace this with the actual quantity value -->
+                    <input type="number" class="form-control quantity-input" min="1" value="1"
+                        name="quantity" id="quantityInput" data-price="{{ $item['total'] }}"
+                        data-product-id="{{ $item['product_id'] }}"
+                        data-actual-image="{{ asset($item['actualImage']) }}"
+                        data-uploaded-image="{{ asset(Storage::url($item['uploadedImagePath'])) }}"
+                        data-height="{{ $item['height'] }}" data-width="{{ $item['width'] }}">
+                </div>
+                <div class="col  d-flex align-items-center">
+                    <!-- Placeholder for Subtotal -->
+                    <!-- You can replace this with the actual subtotal value -->
 
-            <div class="summaryheading">
-                <P>CART SUMMARY</P>
+                    <span class="subtotal">{{ $item['total'] }}</span>
+                </div>
+                <div class="col  d-flex align-items-center">
+                    <a href="" class="btn btn-danger btn-sm">Remove</a>
+                </div>
             </div>
-            <div>
-                <div class="subtotal">
-                    <p>Sub Total</p>
-                    <p></p>
-                </div>
-                <div class="shipping">
-                    <p>Shipping</p>
-                    <p>Rs30</p>
-                </div>
-                <div class="total">
-                    <p>Total Bill</p>
-                    <p></p>
-                </div>
-                <button type="button" class="chkoutbtn" id='proceedToCheckoutBtn'>Proceed to Checkout</button>
+        @endforeach
 
+        <!-- Display total -->
+        <div class="col mt-3">
+            <div class="col-6">
+                <p>Total: <span id="total"></span></p>
             </div>
+            <div class="col-6">
+                <form id="checkoutForm" action="{{ url('/checkout') }}" method="post">
+                    @csrf <!-- Include CSRF token for Laravel -->
 
-        </section>
-    </center>
+                    <input type="hidden" name="cartItems" id="cartItemsInput">
+                    <input type="hidden" name="total" id="totalInput">
+
+                    <div class="col-6">
+                        <button type="button" class="btn btn-dark btn-lg" id="proceedToCheckoutBtn">Proceed to
+                            Checkout</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- ... (remaining code) ... -->
+
     <!---->
 
     <!--sec5 started-->
@@ -218,301 +250,125 @@
         integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        $(".slider").slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true,
-                    },
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    },
-                },
-            ],
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all quantity input fields
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+
+            // Add onchange event listener to each quantity input
+            quantityInputs.forEach(function(input) {
+                input.addEventListener('change', function() {
+                    // Get the quantity and other details
+                    const quantity = parseInt(this.value);
+                    const price = parseFloat(this.dataset.price);
+                    const productId = this.dataset.productId;
+
+                    const actualImage = this.dataset.actualImage ? this.dataset.actualImage : '';
+                    const uploadedImage = this.dataset.uploadedImage ? this.dataset.uploadedImage :
+                        '';
+                    const height = this.dataset.height ? this.dataset.height : '';
+                    const width = this.dataset.width ? this.dataset.width : '';
+
+
+                    // Calculate subtotal
+                    const subtotal = quantity * price;
+
+                    // Update the corresponding subtotal element
+                    const subtotalElement = this.closest('.cart-item').querySelector('.subtotal');
+                    subtotalElement.textContent = subtotal.toFixed(2);
+
+                    // Update the total
+                    updateTotal();
+                });
+            });
+
+            // Function to update the total based on all subtotals
+            function updateTotal() {
+                const subtotalElements = document.querySelectorAll('.subtotal');
+                let total = 0;
+
+                // Calculate the sum of all subtotals
+                subtotalElements.forEach(function(subtotalElement) {
+                    total += parseFloat(subtotalElement.textContent);
+                });
+
+                // Update the total element
+                document.getElementById('total').textContent = total.toFixed(2);
+            }
+
+            function onPageLoad() {
+                // Call your updateTotal function here
+                updateTotal();
+            }
+
+            // Attach the onPageLoad function to the onload event of the window
+            window.onload = onPageLoad;
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+
+            quantityInputs.forEach(function(input) {
+                input.addEventListener('change', function() {
+                    updateTotal();
+                });
+            });
+
+            function proceedToCheckout() {
+                const cartItems = [];
+
+                // Loop through each cart item to gather values
+                quantityInputs.forEach(function(input) {
+                    const cartItem = {
+                        product_id: input.dataset.productId,
+                        quantity: parseInt(input.value),
+                        actual_image: input.dataset.actualImage,
+                        uploaded_image: input.dataset.uploadedImage,
+                        height: input.dataset.height,
+                        width: input.dataset.width,
+                        price: parseFloat(input.dataset.price),
+                        subtotal: parseFloat(input.closest('.cart-item').querySelector('.subtotal')
+                            .textContent)
+                    };
+
+                    cartItems.push(cartItem);
+                });
+
+                const total = document.getElementById('total').textContent;
+
+                // Set values in hidden inputs
+                document.getElementById('cartItemsInput').value = JSON.stringify(cartItems);
+                document.getElementById('totalInput').value = total;
+
+                // Submit the form
+                document.getElementById('checkoutForm').submit();
+            }
+
+            // Add click event listener to the document body
+            document.body.addEventListener('click', function(event) {
+                // Check if the clicked element has the id 'proceedToCheckoutBtn'
+                if (event.target.id === 'proceedToCheckoutBtn') {
+                    proceedToCheckout();
+                }
+            });
+
+            function updateTotal() {
+                // ... (your existing updateTotal logic)
+
+                const subtotalElements = document.querySelectorAll('.subtotal');
+                let total = 0;
+
+                // Calculate the sum of all subtotals
+                subtotalElements.forEach(function(subtotalElement) {
+                    total += parseFloat(subtotalElement.textContent);
+                });
+
+                // Update the total element
+                document.getElementById('total').textContent = total.toFixed(2);
+            }
         });
     </script>
-
-
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize cart data only if it's not already present
-            if (!localStorage.getItem('cart')) {
-                localStorage.setItem('cart', JSON.stringify([]));
-            }
-
-            // Retrieve cart data from localStorage
-            var cartData = localStorage.getItem('cart');
-
-            if (cartData) {
-                // If cart data exists, parse it to an array
-                var cartArray = JSON.parse(cartData);
-
-                // Get the cart container element
-                var cartContainer = document.querySelector('.productscart');
-
-                // Loop through each item in the cart and create HTML elements
-                cartArray.forEach(function(item) {
-                    // Create a new productDiv for each item
-                    var productDiv = createProductDiv(item);
-
-                    // Append the productDiv to the cart container
-                    cartContainer.appendChild(productDiv);
-                });
-
-                // Update the cart summary after loading the cart page
-                updateCartSummary(cartArray);
-            }
-
-            // Add an event listener to handle remove button clicks
-            var cartContainer = document.querySelector('.productscart');
-            cartContainer.addEventListener('click', function(event) {
-                // Check if the clicked element is a remove button
-                if (event.target.tagName === 'BUTTON' && event.target.textContent === 'X') {
-                    // Call the removeFromCart function with the clicked button
-                    removeFromCart(event.target);
-                }
-            });
-
-            // Add an event listener to handle quantity updates
-            cartContainer.addEventListener('input', function(event) {
-                // Check if the input is a quantity input
-                if (
-                    event.target.classList.contains('productquantity') &&
-                    event.target.getAttribute('type') === 'number'
-                ) {
-                    // Call the updateQuantity function with the changed input
-                    updateQuantity(event.target);
-                }
-            });
-
-            // Function to create a new productDiv for a given item
-            function createProductDiv(item) {
-                var productDiv = document.createElement('div');
-                productDiv.classList.add('productdiv');
-
-                // Create HTML elements for the cart item
-                var productDetails = document.createElement('span');
-                productDetails.classList.add('productdetails');
-                productDetails.innerHTML = '<img src="' + item.img + '" alt=""><p class="productname">' + item
-                    .title + '</p>';
-
-                var productPrice = document.createElement('span');
-                productPrice.classList.add('productprice');
-                productPrice.textContent = item.price;
-
-                var productQuantity = document.createElement('input');
-                productQuantity.classList.add('productquantity');
-                productQuantity.setAttribute('type', 'number');
-                productQuantity.setAttribute('value', item.quantity);
-                productQuantity.setAttribute('min', '1');
-
-                var productTotal = document.createElement('span');
-                productTotal.classList.add('producttotal');
-                productTotal.textContent =
-                    `Rs ${(item.quantity * parseFloat(item.price.replace('Rs', ''))).toFixed(2)}`;
-
-                var removeButton = document.createElement('button');
-                removeButton.setAttribute('type', 'button');
-                removeButton.textContent = 'X';
-
-                // Append the created elements to the productDiv
-                productDiv.appendChild(productDetails);
-                productDiv.appendChild(productPrice);
-                productDiv.appendChild(productQuantity);
-                productDiv.appendChild(productTotal);
-                productDiv.appendChild(removeButton);
-
-                return productDiv;
-            }
-
-            // Function to remove an item from the cart
-            // function removeFromCart(removeButton) {
-            //     var productDiv = removeButton.parentNode;
-            //     var productName = productDiv.querySelector('.productname').textContent;
-
-            //     // Retrieve cart data from localStorage
-            //     var cartData = localStorage.getItem('cart');
-
-            //     if (cartData) {
-            //         // If cart data exists, parse it to an array
-            //         var cartArray = JSON.parse(cartData);
-
-            //         // Find and remove the item from the cart array
-            //         cartArray = cartArray.filter(function(item) {
-            //             return item.title !== productName;
-            //         });
-
-            //         // Update the cart in localStorage
-            //         localStorage.setItem('cart', JSON.stringify(cartArray));
-
-            //         // Remove the productDiv from the cart container
-            //         cartContainer.removeChild(productDiv);
-
-            //         // Update the cart summary
-            //         updateCartSummary(cartArray);
-            //     }
-            // }
-            // Function to remove an item from the cart
-            // Function to remove an item from the cart
-            // Function to remove an item from the cart
-            function removeFromCart(removeButton) {
-                var productDiv = removeButton.parentNode;
-                var productName = productDiv.querySelector('.productname').textContent.trim();
-
-                // Retrieve cart data from localStorage
-                var cartData = localStorage.getItem('cart');
-
-                console.log('Original Cart Data:', cartData);
-
-                if (cartData) {
-                    // If cart data exists, parse it to an array
-                    var cartArray = JSON.parse(cartData);
-
-                    // Find and remove the item from the cart array
-                    cartArray = cartArray.filter(function(item) {
-                        return item.title.trim() !== productName;
-                    });
-
-                    console.log('Updated Cart Array:', cartArray);
-
-                    // Update the cart in localStorage
-                    localStorage.setItem('cart', JSON.stringify(cartArray));
-
-                    console.log('Updated Cart Data:', localStorage.getItem('cart'));
-
-                    // Remove the productDiv from the cart container
-                    cartContainer.removeChild(productDiv);
-
-                    // Update the cart summary
-                    updateCartSummary(cartArray);
-
-                    // Clear the specific cookie related to the cart
-                    document.cookie = 'cart=; max-age=0; path=/;';
-
-
-                    // You can also delete the cookie using the 'max-age' attribute
-                    // document.cookie = 'cart=; max-age=0; path=/;';
-                }
-            }
-
-
-
-
-
-            // Function to update quantity and recalculate total price in cart
-            function updateQuantity(quantityInput) {
-                var productDiv = quantityInput.parentNode;
-                var productName = productDiv.querySelector('.productname').textContent;
-
-                // Retrieve cart data from localStorage
-                var cartData = localStorage.getItem('cart');
-
-                if (cartData) {
-                    // If cart data exists, parse it to an array
-                    var cartArray = JSON.parse(cartData);
-
-                    // Find the item in the cart array
-                    var cartItem = cartArray.find(function(item) {
-                        return item.title === productName;
-                    });
-
-                    // Update the quantity of the item
-                    var newQuantity = parseInt(quantityInput.value);
-
-                    // Ensure the new quantity is greater than or equal to 1
-                    if (newQuantity < 1) {
-                        newQuantity = 1;
-                        quantityInput.value = newQuantity;
-                    }
-
-                    cartItem.quantity = newQuantity;
-
-                    // Update the cart in localStorage
-                    localStorage.setItem('cart', JSON.stringify(cartArray));
-
-                    // Update the total price for the product in the cart
-                    var productTotal = productDiv.querySelector('.producttotal');
-                    productTotal.textContent =
-                        `Rs ${(newQuantity * parseFloat(cartItem.price.replace('Rs', ''))).toFixed(2)}`;
-
-                    // Recalculate and update the cart summary
-                    updateCartSummary(cartArray);
-                }
-            }
-
-            // Function to update the cart summary
-            function updateCartSummary(cartArray) {
-                var subtotal = 0;
-
-                // Calculate subtotal
-                cartArray.forEach(function(item) {
-                    subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
-                });
-
-                var shipping = 30; // Add shipping charges
-
-                // Update subtotal, shipping, and total in the cart summary
-                document.querySelector('.subtotal p:last-child').textContent = `Rs ${subtotal.toFixed(2)}`;
-                document.querySelector('.shipping p:last-child').textContent = `Rs ${shipping.toFixed(2)}`;
-                document.querySelector('.total p:last-child').textContent =
-                    `Rs ${(subtotal + shipping).toFixed(2)}`;
-            }
-        });
-        var proceedToCheckoutBtn = document.getElementById('proceedToCheckoutBtn');
-        proceedToCheckoutBtn.addEventListener('click', function() {
-            // Retrieve cart data from localStorage
-            var cartData = localStorage.getItem('cart');
-
-            if (cartData) {
-                // If cart data exists, parse it to an array
-                var cartArray = JSON.parse(cartData);
-
-                // Calculate subtotal, shipping, and total
-                var subtotal = calculateSubtotal(cartArray);
-                var shipping = 30; // Add shipping charges
-                var total = subtotal + shipping;
-
-                // Construct the URL with query parameters
-                var checkoutUrl = '/checkout' + '?total=' + total;
-
-                // Redirect to the checkout page with query parameters
-                window.location.href = checkoutUrl;
-            }
-        });
-
-        // Existing functions...
-
-        // Function to calculate subtotal
-        function calculateSubtotal(cartArray) {
-            var subtotal = 0;
-            cartArray.forEach(function(item) {
-                subtotal += item.quantity * parseFloat(item.price.replace('Rs', ''));
-            });
-            return parseFloat(subtotal.toFixed(2));
-        }
-    </script> --}}
-
 </body>
 
 </html>

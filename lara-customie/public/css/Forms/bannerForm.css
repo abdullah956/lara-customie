@@ -71,68 +71,7 @@
   }
 
   /*prodcut form starteed*/
-  .sec4{
-    margin-top: 4vw;
-    width: 95vw;
-  }
-  .sec4img{
-    width: 40vw;
-    height: 40vw;
-    
-  }
-  .sec4top{
-    width: 70vw;
-    height: 40vw;
-    margin-top: 5vw;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-  }
-  .sec4left{
-    width: 40vw;
-  }
-  .sec4right{
-    width: 55vw;
-    background-color: rgb(255, 255, 255);
-    display: inline;
-    justify-content: left;
-  
-  }
-  .sec4right .uploadimg{
-  height: 4vw; width: 10vw;
-font-size: 1.3vw;
-}
-.sec4form{
-  margin-top: 4vw;
-}
-
-.sec4form div{
-  margin-top: 1.5vw;
-  font-size: 1.2vw;
-}
-.sec4form input{
-  width: 15vw;
-  height: 2vw;
-}
-
-.sec4cart button{
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 1.2vw;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  padding: .5vw 1vw;
-  align-items: center;
-  margin-top: 2vw;
-
-}
-.sec4cart button:hover{
-  background-color: rgb(177, 177, 177);
-}
-.sec4cart button img{
-  width: 2vw;
-}
+ 
   /*footer started*/
   
   
