@@ -19,6 +19,14 @@ class ProductController extends Controller
         $product = Product::where('serial_no', $productId)->first();
         return view('Forms.bannerForm', ['product' => $product]);
     }
+    public function showPage1(Request $request)
+    {
+        $productId = $request->input('product_id');
+        // dd($productId);
+        // $product = Product::find($productId);
+        $product = Product::where('serial_no', $productId)->first();
+        return view('Forms.bannerForm1', ['product' => $product]);
+    }
     public function showHome()
     {
         $cups = Product::where('product_type', 'cups')->get();
@@ -32,6 +40,20 @@ class ProductController extends Controller
         ];
 
         return view('Catagories.catagoryHome', ['products' => $products]);
+    }
+    public function showbanner()
+    {
+        $birth = Product::where('product_type', 'birthdays')->get();
+        $wed = Product::where('product_type', 'weddings')->get();
+        $fun = Product::where('product_type', 'functions')->get();
+
+        $products = [
+            'birth' => $birth,
+            'wed' => $wed,
+            'fun' => $fun,
+        ];
+        // dd($products);
+        return view('Catagories.catagoryBanner', ['products' => $products]);
     }
 
     public function destroy($id)
@@ -155,6 +177,39 @@ class ProductController extends Controller
         $uploadedtext = $request->input('uploadedtext');
         $width = $request->input('width');
         $height = $request->input('height');
+        $total = $request->input('total');
+
+        $product = Product::where('serial_no', $product_id)->first();
+        $actualImage = $product->picture;
+
+        $uploadedImage = $request->file('uploadedimg');
+
+        $path = $uploadedImage->store('public/uploads');
+        Storage::setVisibility($path, 'public');
+        $randomNumber = mt_rand(1, 9999);
+        $cartItem = [
+            'product_id' => $product_id,
+            'uploadedtext' => $uploadedtext,
+            'width' => $width,
+            'height' => $height,
+            'total' => $total,
+            'actualImage' => $actualImage,
+            'uploadedImagePath' => $path,
+            'random' => $randomNumber,
+        ];
+
+        $request->session()->push('cart', $cartItem);
+
+        return redirect()->route('cart');
+    }
+    public function store1(Request $request)
+    {
+        $product_id = $request->input('product_id');
+        // dd($product_id);
+        $uploadedtext = $request->input('uploadedtext');
+
+        $width = null;
+        $height = null;
         $total = $request->input('total');
 
         $product = Product::where('serial_no', $product_id)->first();

@@ -189,7 +189,7 @@
                     break;
                 case 'banners':
                     categorySelect.options.add(new Option('Birth Days', 'birthdays'));
-                    categorySelect.options.add(new Option('Weedings', 'weedings'));
+                    categorySelect.options.add(new Option('Weddings', 'weddings'));
                     categorySelect.options.add(new Option('Functions', 'functions'));
                     // Add more options as needed
                     break;

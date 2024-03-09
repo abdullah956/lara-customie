@@ -222,44 +222,19 @@
     <!--product section 2 -->
     <center>
         <section class="pillow">
-            <div class="pillowitems slider ">
-                <div class="card">
-                    <img src="../imgs/Pillows/p1.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p2.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p3.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p4.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p5.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Pillows/p6.jpg">
-                    <h1>Pillow</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-
+            <div class="pillowitems slider">
+                @foreach ($products['wed'] as $wed)
+                    <div class="card">
+                        <img src="{{ $wed->picture }}" alt="{{ $wed->name }}">
+                        <h1>{{ $wed->name }}</h1>
+                        <p class="price">${{ $wed->price }}</p>
+                        <form action="{{ route('banners.page') }}" method="GET">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $wed->serial_no }}">
+                            <button type="submit" class="btn btn-primary">Use Design</button>
+                        </form>
+                    </div>
+                @endforeach
             </div>
             <div class="pillowbanner">
                 <img src="../imgs/Pillows/sidep1.jpg" alt="">
@@ -267,67 +242,20 @@
         </section>
     </center>
 
-    <!--product section 1 -->
-    {{-- <center>
-        <section class="cup">
-            <div class="cupbanner">
-                <img src="../imgs/Cups/sidec2.jpg" alt="">
-            </div>
-            <div class="cupitems slider ">
-                <div class="card">
-                    <img src="../imgs/Cups/c2.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c3.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c1.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c4.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c5.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="../imgs/Cups/c6.jpg">
-                    <h1>Cup</h1>
-                    <p class="price">$19.99</p>
-                    <button>Add to Cart</button>
-                </div>
-
-            </div>
-        </section>
-    </center> --}}
     <center>
         <section class="cup">
             <div class="cupbanner">
-                <img src="../imgs/Cups/sidec2.jpg" alt="">
+                <img src="../imgs/Banners/sideb1.jpg" alt="">
             </div>
             <div class="cupitems slider">
-                @foreach ($products['cups'] as $cup)
+                @foreach ($products['birth'] as $birth)
                     <div class="card">
-                        <img src="{{ $cup->picture }}" alt="{{ $cup->name }}">
-                        <h1>{{ $cup->name }}</h1>
-                        <p class="price">${{ $cup->price }}</p>
-                        <form action="{{ route('banners1.page') }}" method="GET">
+                        <img src="{{ $birth->picture }}" alt="{{ $birth->name }}">
+                        <h1>{{ $birth->name }}</h1>
+                        <p class="price">${{ $birth->price }}</p>
+                        <form action="{{ route('banners.page') }}" method="GET">
                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $cup->serial_no }}">
+                            <input type="hidden" name="product_id" value="{{ $birth->serial_no }}">
                             <button type="submit" class="btn btn-primary">Use Design</button>
                         </form>
                     </div>

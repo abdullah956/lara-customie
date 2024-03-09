@@ -36,10 +36,11 @@ Route::group(['middleware' => ['authCheck']], function () {
 //Route::get('/checkout', [ProductController::class, 'showCheckoutPage'])->name('Form.Checkout');
 Route::post('/checkoutProduct', [ProductController::class, 'checkoutProduct'])->name('Form.CheckoutProduct');
 //img product
-Route::get('/banner', [ProductController::class, 'bannerForm'])->name('Form.Banner');
+// Route::get('/banner', [ProductController::class, 'bannerForm'])->name('Form.Banner');
 Route::post('/bannerSave', [ProductController::class, 'saveBannerData'])->name('Form.BannerSave');
 
 Route::get('/banners/page', [ProductController::class, 'showPage'])->name('banners.page');
+Route::get('/banners1/page', [ProductController::class, 'showPage1'])->name('banners1.page');
 
 
 Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
@@ -57,7 +58,11 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 Route::get('/showcartitems', [ProductController::class, 'showcartitems'])->name('showcartitems');
 
 Route::post('/bannertocart', [ProductController::class, 'store'])->name('cart.store');
+Route::post('/bannertocart1', [ProductController::class, 'store1'])->name('cart1.store');
+
 Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
 
 Route::post('/checkout', [ProductController::class, 'cartToCheckout'])->name('checkout.index');
 Route::delete('/remove-product/{randomNumber}', [ProductController::class, 'removeProduct']);
+
+Route::get('/catagorybanner', [ProductController::class, 'showBanner'])->name('Catagory.Banners');
