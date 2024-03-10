@@ -119,11 +119,11 @@
             </div>
         </nav>
     </section>
-    <div class="container mt-5">
+    {{-- <div class="container mt-5">
         <h2>Checkout Summary</h2>
 
         <div class="row">
-            <div class="col">
+            <div class="col" style="display: none">
                 <h4>Cart Items</h4>
                 <ul>
                     @foreach ($cartItems as $item)
@@ -149,7 +149,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
     <!--section1 start-->
     <!--checkout Form started-->
     <section class="sec4">
@@ -165,6 +165,26 @@
                     <form name="checkoutForm" method="post" action="{{ route('stripe.session') }}"
                         onsubmit=" return validateFormCheckout()">
                         @csrf
+                        <div class="col" style="display: none">
+                            <h4>Cart Items</h4>
+                            <ul>
+                                @foreach ($cartItems as $item)
+                                    <li>
+                                        Product ID: {{ $item['product_id'] }},
+
+                                        Quantity: {{ $item['quantity'] }},
+                                        Text: {{ $item['uploadedtext'] }},
+                                        Height: {{ $item['height'] }} (in cm),
+                                        Width: {{ $item['width'] }} (in cm),
+                                        Actual Image: <img src="{{ asset($item['actual_image']) }}"
+                                            alt="Actual Design" style="max-width: 6vw; max-height: 6vw">
+                                        User Design: <img src="{{ asset($item['uploaded_image']) }}"
+                                            alt="Uploaded Image" style="max-width: 6vw; max-height: 6vw">
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <input type="hidden" name="cartItems" value="{{ json_encode($cartItems) }}">
+                        </div>
                         <div class="row">
                             <div class="col-50">
                                 <h3 style="color: black; text-decoration: none;">Total : <span>Rs <input

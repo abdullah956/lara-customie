@@ -8,6 +8,8 @@ class StripeController extends Controller
 {
     public function session(Request $request)
     {
+        $cartItems = json_decode($request->input('cartItems'), true);
+        //dd($cartItems);
         $Checkout = new Checkout();
         $Checkout->id = $request->id;
         $Checkout->first_name = $request->fname;
@@ -22,8 +24,10 @@ class StripeController extends Controller
         $Checkout->billing_address = $request->baddress;
         $Checkout->payment_method = $request->money;
         $Checkout->totalbill = $request->totalbill;
+        // $Checkout->cart_items = $cartItems;
+        $Checkout->cart_items = json_encode($cartItems);
         $Checkout->save();
-
+        // $cartItems2 = json_decode($Checkout->cart_items, true);
         if ($request->money === 'banktransfer') {
             \Stripe\Stripe::setApiKey(config('stripe.sk'));
             $totalPrice = $request->get('totalbill');
@@ -45,8 +49,8 @@ class StripeController extends Controller
                     ],
                 ],
                 'mode' => 'payment',
-                'success_url' => route('home'),
-                'cancel_url' => route('Form.Checkout'),
+                'success_url' => route('suc'),
+                'cancel_url' => url('/checkout'),
             ]);
 
             return redirect()->away($session->url);

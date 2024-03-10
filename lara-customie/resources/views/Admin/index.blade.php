@@ -177,7 +177,9 @@
                                         <th scope="col">Payment Method</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Time</th>
+                                        <th scope="col">Items</th>
                                         <th scope="col">Approve/Confirmed</th>
+
                                         <!-- Add other table headers as needed -->
                                     </tr>
                                 </thead>
@@ -197,6 +199,7 @@
                                             <td>{{ $order->payment_method }}</td>
                                             <td>{{ $order->totalbill }}</td>
                                             <td>{{ $order->created_at }}</td>
+                                            <td>{{ $order->cart_items }}</td>
                                             <td>
                                                 <button id="approveBtn{{ $order->id }}"
                                                     onclick="approveOrder({{ $order->id }})"
