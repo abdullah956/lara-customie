@@ -55,8 +55,7 @@ class StripeController extends Controller
 
             return redirect()->away($session->url);
         }
-        // If the payment method is not 'banktransfer,' redirect to home.index
-        return view("Home.thanks");
+        return view("Home.thanks", ['cartItems' => $cartItems, 'totalbill' => $request->totalbill]);
     }
 
 }

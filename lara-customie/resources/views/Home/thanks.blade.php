@@ -124,7 +124,24 @@
         <p style="margin-top: 2%;font-size:2vw">Thank you for Shopping</p>
 
     </center>
-
+    {{-- <h2>Your Cart Items:</h2>
+    <ul>
+        @foreach ($cartItems as $item)
+            <li>
+                <strong>Product ID: {{ $item['product_id'] }}</strong>
+                <p>Price: {{ $item['price'] }}</p>
+                <p>Quantity: {{ $item['quantity'] }}</p>
+                <p>Actual Image: <img src="{{ asset($item['actual_image']) }}" alt="Actual Image"></p>
+                <p>Uploaded Image: <img src="{{ asset($item['uploaded_image']) }}" alt="Uploaded Image">
+                </p>
+                <p>Uploaded Text: {{ $item['uploadedtext'] }}</p>
+                <p>Height: {{ $item['height'] }}</p>
+                <p>Width: {{ $item['width'] }}</p>
+                <p>Subtotal: {{ $item['subtotal'] }}</p>
+                <p>Total :{{ $totalbill }}</p>
+            </li>
+        @endforeach
+    </ul> --}}
     <footer>
         <div class="footerdiv">
             <h3 class="footerheading"
