@@ -30,7 +30,7 @@
         </div>
         <div class="nav2right">
             <a href=""><img src="../imgs/Icons/Black/heartblack.png" alt=""></a>
-            <a href=""><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
+            <a href="{{ route('cart') }}"><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
             <a href=""><img src="../imgs/Icons/Black/userblack.png" alt=""></a>
         </div>
     </nav>
@@ -50,8 +50,9 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Home') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
