@@ -193,11 +193,11 @@
                                 <label for="fname"><i class="fa fa-user"></i> First Name</label>
                                 <span id="fnameerror" class="span-error"></span>
                                 <input class="checkF" type="text" id="fname" name="fname"
-                                    placeholder="Enter Name">
+                                    placeholder="Enter First Name">
                                 <label for="lname"><i class="fa fa-user"></i> Last Name</label>
                                 <span id="lnameerror" class="span-error"></span>
                                 <input class="checkF" type="text" id="lname" name="lname"
-                                    placeholder="Enter Email">
+                                    placeholder="Enter Last Name">
                                 <label for="saddress"><i class="fa fa-address-card-o"></i> Shippping Address</label>
                                 <span id="saddresserror" class="span-error"></span>
                                 <input class="checkF" type="text" id="saddress" name="saddress"

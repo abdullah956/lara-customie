@@ -56,6 +56,7 @@ class StripeController extends Controller
             return redirect()->away($session->url);
         }
         return view("Home.thanks", ['cartItems' => $cartItems, 'totalbill' => $request->totalbill]);
+        // [{"product_id":"1","quantity":2,"actual_image":"http:\/\/127.0.0.1:8000\/products\/n81YXENf3rjqbsyEhtwljFGj6HYGxzpUZoXAS8ar.jpg","uploaded_image":"http:\/\/127.0.0.1:8000\/storage\/uploads\/GpfYOpN0uSQPuLiHXrimc4ssGUWqjSFhU94DB1PP.jpg","uploadedtext":"koko","height":"","width":"","price":120,"subtotal":240}]
     }
 
 }

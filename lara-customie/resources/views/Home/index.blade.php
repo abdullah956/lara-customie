@@ -56,11 +56,12 @@
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Cups</a></li>
-                                <li><a class="dropdown-item" href="#">Pillows</a></li>
-                                <li><a class="dropdown-item" href="#">Clocks</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Cups</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Pillows</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Clocks</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">Men

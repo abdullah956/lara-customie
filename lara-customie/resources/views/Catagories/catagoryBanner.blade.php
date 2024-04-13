@@ -121,7 +121,7 @@
     <!--section1 start-->
     <center>
         <div class="catagoriesHeading">
-            <p><strong><b>Home Products</b></strong></p>
+            <p><strong><b>Banner Products</b></strong></p>
         </div>
     </center>
     <center>
