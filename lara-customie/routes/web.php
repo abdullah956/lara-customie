@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::get('/success', function () {
     return view('Home.thanks');
 })->name('suc');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/signup', [SignUpController::class, 'insertSignUp'])->name('Form.SignUp');
 Route::post('/Home', [SignUpController::class, 'storeSignUp'])->name('Form.StoreSignUp');
 Route::post('/HOme', [SignUpController::class, 'checkLogin'])->name('Form.Login');
