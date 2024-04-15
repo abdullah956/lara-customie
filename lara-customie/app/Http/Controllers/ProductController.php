@@ -55,6 +55,57 @@ class ProductController extends Controller
         // dd($products);
         return view('Catagories.catagoryBanner', ['products' => $products]);
     }
+    public function showMen()
+    {
+        $shirts = Product::where('product_type', 'shirts')->get();
+        $wallets = Product::where('product_type', 'wallets')->get();
+
+        $products = [
+            'birth' => $shirts,
+            'wed' => $wallets,
+        ];
+        // dd($products);
+        return view('Catagories.catagoryMen', ['products' => $products]);
+    }
+    public function showStat()
+    {
+        $shirts = Product::where('product_type', 'pen')->get();
+        $wallets = Product::where('product_type', 'books')->get();
+
+        $products = [
+            'birth' => $shirts,
+            'wed' => $wallets,
+        ];
+        // dd($products);
+        return view('Catagories.catagoryStat', ['products' => $products]);
+    }
+    public function showOther()
+    {
+        $shirts = Product::where('product_type', 'keychains')->get();
+        $wallets = Product::where('product_type', 'mobilecovers')->get();
+
+        $products = [
+            'birth' => $shirts,
+            'wed' => $wallets,
+        ];
+        // dd($products);
+        return view('Catagories.catagoryOther', ['products' => $products]);
+    }
+
+    public function showWomen()
+    {
+        $birth = Product::where('product_type', 'wshirts')->get();
+        $wed = Product::where('product_type', 'rings')->get();
+        $fun = Product::where('product_type', 'necklace')->get();
+
+        $products = [
+            'birth' => $birth,
+            'wed' => $wed,
+            'fun' => $fun,
+        ];
+        // dd($products);
+        return view('Catagories.catagoryWomen', ['products' => $products]);
+    }
 
     public function destroy($id)
     {
