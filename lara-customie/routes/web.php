@@ -42,9 +42,6 @@ Route::post('/bannerSave', [ProductController::class, 'saveBannerData'])->name('
 Route::get('/banners/page', [ProductController::class, 'showPage'])->name('banners.page');
 Route::get('/banners1/page', [ProductController::class, 'showPage1'])->name('banners1.page');
 
-
-Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
-
 // Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
 Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
 
@@ -66,3 +63,11 @@ Route::post('/checkout', [ProductController::class, 'cartToCheckout'])->name('ch
 Route::delete('/remove-product/{randomNumber}', [ProductController::class, 'removeProduct']);
 
 Route::get('/catagorybanner', [ProductController::class, 'showBanner'])->name('Catagory.Banners');
+
+
+Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
+
+Route::get('/catagorymen', [ProductController::class, 'showMen'])->name('Catagory.Men');
+Route::get('/catagorywomen', [ProductController::class, 'showWomen'])->name('Catagory.Women');
+Route::get('/catagorystat', [ProductController::class, 'showStat'])->name('Catagory.stat');
+Route::get('/catagoryother', [ProductController::class, 'showOther'])->name('Catagory.Other');

@@ -121,7 +121,7 @@
     <!--section1 start-->
     <center>
         <div class="catagoriesHeading">
-            <p><strong><b>Banner Products</b></strong></p>
+            <p><strong><b>Products</b></strong></p>
         </div>
     </center>
     <center>
@@ -217,18 +217,19 @@
             </div>
         </section>
     </center> --}}
+
     <center>
         <section class="cup">
             <div class="cupbanner">
-                <img src="../imgs/Banners/sideb1.jpg" alt="">
+                <img src="../imgs/Keychains/side2.jpg" alt="">
             </div>
             <div class="cupitems slider">
-                @foreach ($products['fun'] as $birth)
+                @foreach ($products['birth'] as $birth)
                     <div class="card">
                         <img src="{{ $birth->picture }}" alt="{{ $birth->name }}">
                         <h1>{{ $birth->name }}</h1>
                         <p class="price">${{ $birth->price }}</p>
-                        <form action="{{ route('banners.page') }}" method="GET">
+                        <form action="{{ route('banners1.page') }}" method="GET">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $birth->serial_no }}">
                             <button type="submit" class="btn btn-primary">Use Design</button>
@@ -238,6 +239,7 @@
             </div>
         </section>
     </center>
+
 
     <!--product section 2 -->
     <center>
@@ -248,7 +250,7 @@
                         <img src="{{ $wed->picture }}" alt="{{ $wed->name }}">
                         <h1>{{ $wed->name }}</h1>
                         <p class="price">${{ $wed->price }}</p>
-                        <form action="{{ route('banners.page') }}" method="GET">
+                        <form action="{{ route('banners1.page') }}" method="GET">
                             @csrf
                             <input type="hidden" name="product_id" value="{{ $wed->serial_no }}">
                             <button type="submit" class="btn btn-primary">Use Design</button>
@@ -257,29 +259,7 @@
                 @endforeach
             </div>
             <div class="pillowbanner">
-                <img src="../imgs/Pillows/sidep1.jpg" alt="">
-            </div>
-        </section>
-    </center>
-
-    <center>
-        <section class="cup">
-            <div class="cupbanner">
-                <img src="../imgs/Banners/sideb1.jpg" alt="">
-            </div>
-            <div class="cupitems slider">
-                @foreach ($products['birth'] as $birth)
-                    <div class="card">
-                        <img src="{{ $birth->picture }}" alt="{{ $birth->name }}">
-                        <h1>{{ $birth->name }}</h1>
-                        <p class="price">${{ $birth->price }}</p>
-                        <form action="{{ route('banners.page') }}" method="GET">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $birth->serial_no }}">
-                            <button type="submit" class="btn btn-primary">Use Design</button>
-                        </form>
-                    </div>
-                @endforeach
+                <img src="../imgs/Mobilecovers/side3.jpg" alt="">
             </div>
         </section>
     </center>

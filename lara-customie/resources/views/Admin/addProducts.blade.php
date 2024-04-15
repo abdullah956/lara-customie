@@ -176,7 +176,7 @@
                     // Add more options as needed
                     break;
                 case 'women':
-                    categorySelect.options.add(new Option('Shirts', 'shirts'));
+                    categorySelect.options.add(new Option('Shirts', 'wshirts'));
                     categorySelect.options.add(new Option('Rings', 'rings'));
                     categorySelect.options.add(new Option('Necklace', 'necklace'));
                     // Add more options as needed

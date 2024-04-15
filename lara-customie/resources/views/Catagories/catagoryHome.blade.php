@@ -170,7 +170,7 @@
     </center>
 
 
-    <!--product section 1 -->
+    {{-- <!--product section 1 -->
     <center>
         <section class="clock">
             <div class="clockbanner">
@@ -216,10 +216,10 @@
 
             </div>
         </section>
-    </center>
+    </center> --}}
 
 
-    <!--product section 2 -->
+    {{-- <!--product section 2 -->
     <center>
         <section class="pillow">
             <div class="pillowitems slider ">
@@ -317,6 +317,49 @@
     <center>
         <section class="cup">
             <div class="cupbanner">
+                <img src="../imgs/Clock/sidec2.jpg" alt="">
+            </div>
+            <div class="cupitems slider">
+                @foreach ($products['clocks'] as $cup)
+                    <div class="card">
+                        <img src="{{ $cup->picture }}" alt="{{ $cup->name }}">
+                        <h1>{{ $cup->name }}</h1>
+                        <p class="price">${{ $cup->price }}</p>
+                        <form action="{{ route('banners1.page') }}" method="GET">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $cup->serial_no }}">
+                            <button type="submit" class="btn btn-primary">Use Design</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    </center>
+
+    <center>
+        <section class="pillow">
+            <div class="pillowitems slider">
+                @foreach ($products['pillows'] as $wed)
+                    <div class="card">
+                        <img src="{{ $wed->picture }}" alt="{{ $wed->name }}">
+                        <h1>{{ $wed->name }}</h1>
+                        <p class="price">${{ $wed->price }}</p>
+                        <form action="{{ route('banners1.page') }}" method="GET">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $wed->serial_no }}">
+                            <button type="submit" class="btn btn-primary">Use Design</button>
+                        </form>
+                    </div>
+                @endforeach
+            </div>
+            <div class="pillowbanner">
+                <img src="../imgs/Pillows/sidep1.jpg" alt="">
+            </div>
+        </section>
+    </center>
+    <center>
+        <section class="cup">
+            <div class="cupbanner">
                 <img src="../imgs/Cups/sidec2.jpg" alt="">
             </div>
             <div class="cupitems slider">
@@ -335,6 +378,7 @@
             </div>
         </section>
     </center>
+
 
 
 
