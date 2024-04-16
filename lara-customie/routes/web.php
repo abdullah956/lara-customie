@@ -63,10 +63,7 @@ Route::post('/checkout', [ProductController::class, 'cartToCheckout'])->name('ch
 Route::delete('/remove-product/{randomNumber}', [ProductController::class, 'removeProduct']);
 
 Route::get('/catagorybanner', [ProductController::class, 'showBanner'])->name('Catagory.Banners');
-
-
 Route::get('/catagoryhome', [ProductController::class, 'showHome'])->name('Catagory.Home');
-
 Route::get('/catagorymen', [ProductController::class, 'showMen'])->name('Catagory.Men');
 Route::get('/catagorywomen', [ProductController::class, 'showWomen'])->name('Catagory.Women');
 Route::get('/catagorystat', [ProductController::class, 'showStat'])->name('Catagory.stat');

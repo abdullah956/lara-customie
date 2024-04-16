@@ -28,7 +28,7 @@
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #969696;
+            background: #a5a5a5;
             /* Set the color of the scrollbar handle */
         }
 
@@ -61,10 +61,10 @@
                         class="fas fa-chart-line me-2"></i>Analytics</a>
                 <a href="{{ route('inventory') }}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-shopping-cart me-2"></i>Store Mng</a>
+                        class="fas fa-shopping-cart me-2"></i>Inventory</a>
                 <a href="{{ route('addProduct') }}""
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                        class="fas fa-gift me-2"></i>Products</a>
+                        class="fas fa-gift me-2"></i>Add Products</a>
 
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>

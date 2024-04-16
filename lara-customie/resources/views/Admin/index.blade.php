@@ -50,12 +50,17 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"></i>
-                {{-- <img src="../imgs/Icons/logo.PNG" alt=""> --}}
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
+                style="background-color: white;">
+                <img src="../imgs/Icons/logo.PNG" alt=""
+                    style="width: 200px; height: auto; border-radius: 10%;">
             </div>
+
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
-                        class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="{{ route('orders') }}"
+                    class="list-group-item list-group-item-action bg-transparent second-text active"
+                    style="color: white;"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+
 
                 <a href="{{ route('analytics') }}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
@@ -74,7 +79,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" style="background-color: white;">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
@@ -104,7 +109,7 @@
                 </div>
             </nav>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="background-color: white;">
                 <div class="row g-3 my-2">
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
