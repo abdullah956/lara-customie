@@ -30,7 +30,7 @@
         </div>
         <div class="nav2right">
             <a href=""><img src="../imgs/Icons/Black/heartblack.png" alt=""></a>
-            <a href=""><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
+            <a href="{{ route('cart') }}"><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
             <a href=""><img src="../imgs/Icons/Black/userblack.png" alt=""></a>
         </div>
     </nav>
@@ -50,66 +50,75 @@
                             <a class="nav-link active" aria-current="page" href="#"></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Home') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Home
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Cups</a></li>
-                                <li><a class="dropdown-item" href="#">Pillows</a></li>
-                                <li><a class="dropdown-item" href="#">Clocks</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Cups</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Pillows</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Home') }}">Clocks</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">Men
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Men') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Men
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Shirts</a></li>
-                                <li><a class="dropdown-item" href="#">Wallets</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Men') }}">Shirts</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Men') }}">Wallets</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Women') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Women
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Shirts</a></li>
-                                <li><a class="dropdown-item" href="#">Rings</a></li>
-                                <li><a class="dropdown-item" href="#">Necklace</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Women') }}">Shirts</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Women') }}">Rings</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Women') }}">Necklace</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.stat') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Stationary
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Pen</a></li>
-                                <li><a class="dropdown-item" href="#">Books</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.stat') }}">Pen</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.stat') }}">Books</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Banners') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Banners
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Birthdays</a></li>
-                                <li><a class="dropdown-item" href="#">Weddings</a></li>
-                                <li><a class="dropdown-item" href="#">Functions</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Banners') }}">Birthdays</a>
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Banners') }}">Weddings</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Banners') }}">Functions</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('Catagory.Other') }}"
+                                id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Others
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Keychains</a></li>
-                                <li><a class="dropdown-item" href="#">Mobile Covers</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Other') }}">Keychains</a></li>
+                                <li><a class="dropdown-item" href="{{ route('Catagory.Other') }}">Mobile Covers</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -117,6 +126,7 @@
             </div>
         </nav>
     </section>
+
 
     <!--section1 start-->
     <center>
