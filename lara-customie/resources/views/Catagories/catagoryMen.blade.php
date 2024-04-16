@@ -227,9 +227,14 @@
             </div>
         </section>
     </center> --}}
+    <center>
+        <div class="catagoriesHeading" style="font-size: 5vh;">
+            <p><strong><b>Shirts</b></strong></p>
+        </div>
+    </center>
 
     <center>
-        <section class="cup">
+        <section class="cup" style="margin-top: 5vw;">
             <div class="cupbanner">
                 <img src="../imgs/Shirts/sides1.jpg" alt="">
             </div>
@@ -249,11 +254,15 @@
             </div>
         </section>
     </center>
-
+    <center>
+        <div class="catagoriesHeading" style="font-size: 5vh;">
+            <p><strong><b>Wallets</b></strong></p>
+        </div>
+    </center>
 
     <!--product section 2 -->
     <center>
-        <section class="pillow">
+        <section class="pillow" style="margin-top: 5vw;">
             <div class="pillowitems slider">
                 @foreach ($products['wed'] as $wed)
                     <div class="card">
