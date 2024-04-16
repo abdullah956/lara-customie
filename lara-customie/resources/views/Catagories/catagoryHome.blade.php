@@ -134,7 +134,190 @@
             <p><strong><b>Home Products</b></strong></p>
         </div>
     </center>
-    <center>
+    {{-- <section class="sec4" style="background-color:rgb(0, 0, 0);height: 70vh;width: 100%;">
+        <div class="container page-wrapper" style=" width: 87vw; background-color: rgb(255, 255, 255);">
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Necklace/n1.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">pen</span>
+                                    <span class="p-company">Yeezy</span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Pens/p1.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">Pen</span>
+                                    <span class="p-company">Yeezy</span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Pillows/p1.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">Shirts</span>
+                                    <span class="p-company">Yeezy</span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec4" style="background-color:rgb(0, 0, 0);height: 70vh;width: 100%;">
+        <div class="container page-wrapper" style=" width: 87vw; background-color: rgb(255, 255, 255);">
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Books/book.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">Books</span>
+                                    <span class="p-company"></span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Shirts/s2.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">Shirts</span>
+                                    <span class="p-company"></span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-inner">
+                <div class="row">
+                    <div class="el-wrapper">
+                        <div class="box-up">
+                            <img class="img" src="../imgs/Rings/r1.jpg" alt="" style="width: 100%;">
+                            <div class="img-info">
+                                <div class="info-inner">
+                                    <span class="p-name">Rings</span>
+                                    <span class="p-company">Yeezy</span>
+                                </div>
+                                <div class="a-size"><span class="size"></span></div>
+                            </div>
+                        </div>
+
+                        <div class="box-down">
+                            <div class="h-bg">
+                                <div class="h-bg-inner"></div>
+                            </div>
+
+                            <a class="cart" href="#">
+                                <span class="price">$120</span>
+                                <span class="add-to-cart">
+                                    <span class="txt">Add in cart</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section> --}}
+    {{-- <center>
         <section class="banner">
             <div class="bannerleft">
                 <center>
@@ -177,9 +360,7 @@
                 </div>
             </div>
         </section>
-    </center>
-
-
+    </center> --}}
     {{-- <!--product section 1 -->
     <center>
         <section class="clock">
@@ -496,9 +677,17 @@
             ],
         });
     </script>
-    <script>
-        // Function to handle 'Add to Cart' functionality
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
