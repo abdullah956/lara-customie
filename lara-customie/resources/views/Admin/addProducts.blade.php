@@ -76,7 +76,7 @@
             </nav>
 
             <!-- Add Clothes and Accessories Section -->
-            <div class="col-sm-12 col-md-12 mt-3">
+            {{-- <div class="col-sm-12 col-md-12 mt-3">
                 <div class="container p-4 bg-light rounded" style="max-width: 600px;">
                     <h2 class="mb-4 text-center">Add Products</h2>
                     @if (session('success'))
@@ -128,8 +128,8 @@
                         <button type="submit" class="btn btn-dark">Add to Cart</button>
                     </form>
                 </div>
-            </div>
-
+            </div> --}}
+            <livewire:PostComponent />
 
 
 
