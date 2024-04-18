@@ -31,7 +31,7 @@ class PostComponent extends Component
         // $imagePath = $this->picture->getClientOriginalName();
         // $this->picture->move(public_path('products'), $imagePath);
 
-        $imagePath = $this->picture->getClientOriginalName();
+        $imagePath = $this->picture->hashName();
         // dd($this->picture);
         $Product->picture = $this->picture->storePubliclyAs('products', $imagePath, 'public');
 
@@ -41,12 +41,12 @@ class PostComponent extends Component
         $Product->serial_no = $this->serial_no;
         $Product->quantity = $this->quantity;
         $Product->save();
-        // $sourcePath = 'C:/xampp/htdocs/CustomieLarav/lara-customie/storage/app/livewire-tmp/' . $imagePath;
-        // // dd($sourcePath);
-        // $destinationPath = 'C:/xampp/htdocs/CustomieLarav/lara-customie/public/products/';
+        $sourcePath = 'C:/xampp/htdocs/CustomieLarav/lara-customie/public/storage/products/' . $imagePath;
+        // dd($sourcePath);
+        $destinationPath = 'C:/xampp/htdocs/CustomieLarav/lara-customie/public/products/';
 
-        // // Move the file
-        // File::move($sourcePath, $destinationPath . $imagePath);
+        // Move the file
+        File::move($sourcePath, $destinationPath . $imagePath);
 
         session()->flash('success', 'Product saved successfully.');
         $this->reset();
