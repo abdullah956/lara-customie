@@ -25,6 +25,24 @@ class PostComponent extends Component
     public function storeproducts()
     {
         $Product = new Product();
+        if ($this->category === null && $this->product_type === 'home') {
+            $this->category = 'cups';
+        }
+        if ($this->category === null && $this->product_type === 'men') {
+            $this->category = 'shirts';
+        }
+        if ($this->category === null && $this->product_type === 'women') {
+            $this->category = 'wshirts';
+        }
+        if ($this->category === null && $this->product_type === 'stationary') {
+            $this->category = 'pen';
+        }
+        if ($this->category === null && $this->product_type === 'banners') {
+            $this->category = 'birthdays';
+        }
+        if ($this->category === null && $this->product_type === 'others') {
+            $this->category = 'keychains';
+        }
         $Product->product_catagory = $this->product_type;
         $Product->product_type = $this->category;
 

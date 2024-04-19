@@ -21,8 +21,11 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-dark" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"></i>PK
-                MART</div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"
+                style="background-color: white;">
+                <img src="../imgs/Icons/logo.PNG" alt=""
+                    style="width: 200px; height: auto; border-radius: 10%;">
+            </div>
             <div class="list-group list-group-flush my-3">
                 <a href="{{ route('orders') }}"
                     class="list-group-item list-group-item-action bg-transparent second-text active"
