@@ -33,6 +33,9 @@
             <a href=""><img src="../imgs/Icons/Black/heartblack.png" alt=""></a>
             <a href="{{ route('cart') }}"><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
             <a href=""><img src="../imgs/Icons/Black/userblack.png" alt=""></a>
+            @if (session('user_data'))
+                {{ session('user_data')['name'] }}
+            @endif
         </div>
     </nav>
 
@@ -259,9 +262,12 @@
                         <input type="hidden" id="orderSummaryJson" name="orderSummaryJson" value="">
 
                         <div class="mb-3 sec4cart">
-                            <button type="submit" name="uploadedbtn" class="btn btn-dark">
+                            <button type="submit" name="uploadedbtn" class="btn btn-outline-dark">
                                 {{-- <img src="../imgs/Icons/Black/cartblack.png" alt="" class="me-2"> --}}
                                 Add to Cart
+                            </button>
+                            <button type="button" class="btn btn-outline-dark">
+                                Add to Favorites
                             </button>
                         </div>
                     </div>

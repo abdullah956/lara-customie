@@ -176,7 +176,7 @@
     <section class="categories">
         <ul class="cards">
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.stat') }}" class="card">
                     <img src="../imgs/Cards/c1.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
@@ -192,7 +192,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.Banners') }}" class="card">
                     <img src="../imgs/Banners/main.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
@@ -206,7 +206,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.Men') }}" class="card">
                     <img src="../imgs/Shirts/main.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
@@ -221,7 +221,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.Women') }}" class="card">
                     <img src="../imgs/Shirts/s1.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
@@ -235,7 +235,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.Home') }}" class="card">
                     <img src="../imgs/Home/main.jpg" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
@@ -250,7 +250,7 @@
                 </a>
             </li>
             <li>
-                <a href="" class="card">
+                <a href="{{ route('Catagory.Other') }}" class="card">
                     <img src="../imgs/Cups/main.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
