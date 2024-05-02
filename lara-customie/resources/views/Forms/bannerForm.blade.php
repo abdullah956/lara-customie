@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="nav2right">
-            <a href=""><img src="../imgs/Icons/Black/heartblack.png" alt=""></a>
+            <a href="{{ route('Fav.show') }}"><img src="../imgs/Icons/Black/heartblack.png" alt=""></a>
             <a href="{{ route('cart') }}"><img src="../imgs/Icons/Black/cartblack.png" alt=""></a>
             <a href=""><img src="../imgs/Icons/Black/userblack.png" alt=""></a>
             @if (session('user_data'))

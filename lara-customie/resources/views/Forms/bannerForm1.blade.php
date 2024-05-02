@@ -203,7 +203,7 @@
             <form action="{{ route('cart1.store') }}" method="post" class="sec4form needs-validation"
                 id="orderSummaryForm" enctype="multipart/form-data" novalidate>
                 @csrf
-                <input type="hidden" name="total" value="{{ $product->price }}">
+                <input type="hidden" name="total" value="{{ $product->name }}">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="sec4left mb-3">
@@ -233,29 +233,9 @@
                             <p>Per Foot Price: {{ $product->price }}</p>
                         </div>
 
-                        {{-- <div class="mb-3">
-                            <label for="width" class="form-label">Width (ft)</label>
-                            <input type="number" name="width" id="width" class="form-control" value="1"
-                                min="1" onchange="updatePrice()" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid width.
-                            </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="height" class="form-label">Height (ft)</label>
-                            <input type="number" name="height" id="height" class="form-control" value="1"
-                                min="1" onchange="updatePrice()" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid height.
-                            </div>
-                        </div> --}}
 
-                        {{-- <div class="mb-3">
-                            <p class="mb-2">Price Rs.</p>
-                            <input name='total' type="text" id="total" class="form-control" value=""
-                                readonly>
-                        </div> --}}
+
 
                         <!-- Existing form fields or additional fields can be added here -->
 
@@ -266,9 +246,37 @@
                                 {{-- <img src="../imgs/Icons/Black/cartblack.png" alt="" class="me-2"> --}}
                                 Add to Cart
                             </button>
-                            <button type="button" class="btn btn-outline-dark">
-                                Add to Favorites
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="{{ route('Home.Fav') }}" method="post" class="sec4form needs-validation"
+                id="orderSummaryForm" enctype="multipart/form-data" novalidate>
+                @csrf
+                <input type="hidden" name="total" value="{{ $product->name }}">
+                <div class="row">
+                    <div hidden class="col-md-6">
+                        <div class="sec4left mb-3">
+                            <input type="hidden" name="actualimage" value="{{ asset($product->picture) }}">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="hidden" name="product_id" value="{{ $product->serial_no }}">
+                        <input type="hidden" name="email" value="{{ session('user_data')['email'] }}">
+                        {{-- <div hidden class="mb-3">
+                            <p>Per Foot Price: {{ $product->price }}</p>
+                        </div> --}}
+                        <input type="hidden" name="price" value="{{ $product->price }}">
+
+
+                        <input type="hidden" id="orderSummaryJson" name="orderSummaryJson" value="">
+                        <div class="mb-3 mt-3 sec4cart">
+                            <button style="" type="submit" name="uploadedbtn" class="btn btn-outline-dark">
+                                Add to Fav
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -347,7 +355,6 @@
             // Call the updatePrice function on window load
             updatePrice();
         });
-
         // Assuming you are making an AJAX request to the server
         // after submitting the form to save the banner data
     </script>

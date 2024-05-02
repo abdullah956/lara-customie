@@ -34,16 +34,37 @@ class SignUpController extends Controller
         $request->session()->put('user_data', $userData);
         return view("Home.home", ["user_data" => $userData]);
     }
+    // public function checkLogin(Request $request)
+    // {
+    //     $email = $request->input('email');
+    //     $password = $request->input('password');
+    //     $userData = DB::table('signup_tbl')->where('email', $email)->first();
+    //     if ($userData && $userData->email == $email && $password == $userData->password) {
+    //         $request->session()->put('user_data', $userData);
+    //         return view('Home.home', ['user_data' => $userData]);
+    //     } else {
+    //         return view('Forms.login');
+    //     }
+    // }
+
     public function checkLogin(Request $request)
     {
         $email = $request->input('email');
         $password = $request->input('password');
         $userData = DB::table('signup_tbl')->where('email', $email)->first();
+
         if ($userData && $userData->email == $email && $password == $userData->password) {
-            $request->session()->put('user_data', $userData);
-            return view('Home.home', ['user_data' => $userData]);
+            $userArray = [
+                'email' => $userData->email,
+                'name' => $userData->name,
+                'id' => $userData->id
+            ];
+
+            $request->session()->put('user_data', $userArray);
+            return view('Home.home', ['user_data' => $userArray]);
         } else {
             return view('Forms.login');
         }
     }
+
 }

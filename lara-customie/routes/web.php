@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,8 @@ Route::get('/catagorymen', [ProductController::class, 'showMen'])->name('Catagor
 Route::get('/catagorywomen', [ProductController::class, 'showWomen'])->name('Catagory.Women');
 Route::get('/catagorystat', [ProductController::class, 'showStat'])->name('Catagory.stat');
 Route::get('/catagoryother', [ProductController::class, 'showOther'])->name('Catagory.Other');
+
+
+Route::post('/fav', [FavoritesController::class, 'storeFav'])->name('Home.Fav');
+Route::get('/favshow', [FavoritesController::class, 'showFav'])->name('Fav.show');
+Route::delete('/favorites/{id}', [FavoritesController::class, 'removeFavorite'])->name('removeFavorite');
