@@ -229,7 +229,6 @@ class ProductController extends Controller
         $width = $request->input('width');
         $height = $request->input('height');
         $total = $request->input('total');
-
         $product = Product::where('serial_no', $product_id)->first();
         $actualImage = $product->picture;
 
@@ -238,6 +237,7 @@ class ProductController extends Controller
         $path = $uploadedImage->store('public/uploads');
         Storage::setVisibility($path, 'public');
         $randomNumber = mt_rand(1, 9999);
+
         $cartItem = [
             'product_id' => $product_id,
             'uploadedtext' => $uploadedtext,
@@ -262,7 +262,6 @@ class ProductController extends Controller
         $width = null;
         $height = null;
         $total = $request->input('total');
-
         $product = Product::where('serial_no', $product_id)->first();
         $actualImage = $product->picture;
 
@@ -290,7 +289,6 @@ class ProductController extends Controller
     public function cart(Request $request)
     {
         $cartItems = $request->session()->get('cart', []);
-
         return view('Home.cart', compact('cartItems'));
     }
     public function cartToCheckout(Request $request)

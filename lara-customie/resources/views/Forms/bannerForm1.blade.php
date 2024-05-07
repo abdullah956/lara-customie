@@ -140,70 +140,12 @@
         </div>
     </center>
 
-    {{-- <center>
-        <!-- Product details section -->
-        <section class="sec4top">
-
-            <div class="sec4right">
-                <form action="{{ route('cart.store') }}" method="post" class="sec4form" id="orderSummaryForm"
-                    enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="sec4left">
-                        <img name="actualimage" src="{{ asset($product->picture) }}" alt="" class="sec4img">
-                    </div>
-
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <span id="fileerror" style="font-size: 1vw;"></span>
-                    <input type="file" name="uploadedimg" id="uploadfile"
-                        style="height: 2.8vw; width: 18vw; margin-left: 3vw;font-size: 1vw;">
-
-                    <div>
-                        <p>Please Enter The Description</p>
-                        <textarea id="" cols="40" rows="3" name="uploadedtext" required></textarea>
-                    </div>
-                    <div>
-                        <p>Per Foot Price: {{ $product->price }}</p>
-                    </div>
-                    <div>
-                        <label for="width" style="margin-right: 2.2vw;">Width (ft)</label>
-                        <input type="number" name="width" id="width" value="1" min="1"
-                            onchange="updatePrice()" required>
-                    </div>
-                    <div>
-                        <label for="height" style="margin-right: 1.8vw;">Height (ft)</label>
-                        <input type="number" name="height" id="height" value="1" min="1"
-                            onchange="updatePrice()" required>
-                    </div>
-                    <div>
-                        <p style="margin-right: .8vw;">Price Rs.
-                            <span>
-                                <input name='total' type="text" id="total" value="" readonly>
-                            </span>
-                        </p>
-                    </div>
-
-                    <!-- Existing form fields or additional fields can be added here -->
-
-                    <input type="hidden" id="orderSummaryJson" name="orderSummaryJson" value="">
-
-                    <div class="sec4cart">
-                        <button type="submit" name="uploadedbtn">
-                            <img src="../imgs/Icons/Black/cartblack.png" alt="">
-                            Add to Cart
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </center> --}}
-
     <section class="sec4top">
         <div class="container thick-border border border-3">
             <form action="{{ route('cart1.store') }}" method="post" class="sec4form needs-validation"
                 id="orderSummaryForm" enctype="multipart/form-data" novalidate>
                 @csrf
-                <input type="hidden" name="total" value="{{ $product->name }}">
+                <input type="hidden" name="total" value="{{ $product->price }}">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="sec4left mb-3">

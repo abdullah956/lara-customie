@@ -31,6 +31,11 @@ Route::post('/HOme', [SignUpController::class, 'checkLogin'])->name('Form.Login'
 
 Route::group(['middleware' => ['authCheck']], function () {
     Route::get('/hello', [SignUpController::class, 'hello']);
+
+    Route::post('/fav', [FavoritesController::class, 'storeFav'])->name('Home.Fav');
+    Route::get('/favshow', [FavoritesController::class, 'showFav'])->name('Fav.show');
+    Route::delete('/favorites/{id}', [FavoritesController::class, 'removeFavorite'])->name('removeFavorite');
+
 });
 
 //checkout
@@ -70,7 +75,3 @@ Route::get('/catagorywomen', [ProductController::class, 'showWomen'])->name('Cat
 Route::get('/catagorystat', [ProductController::class, 'showStat'])->name('Catagory.stat');
 Route::get('/catagoryother', [ProductController::class, 'showOther'])->name('Catagory.Other');
 
-
-Route::post('/fav', [FavoritesController::class, 'storeFav'])->name('Home.Fav');
-Route::get('/favshow', [FavoritesController::class, 'showFav'])->name('Fav.show');
-Route::delete('/favorites/{id}', [FavoritesController::class, 'removeFavorite'])->name('removeFavorite');
