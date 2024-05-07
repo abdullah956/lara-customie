@@ -29,9 +29,20 @@ Route::get('/signup', [SignUpController::class, 'insertSignUp'])->name('Form.Sig
 Route::post('/Home', [SignUpController::class, 'storeSignUp'])->name('Form.StoreSignUp');
 Route::post('/HOme', [SignUpController::class, 'checkLogin'])->name('Form.Login');
 
-Route::group(['middleware' => ['authCheck']], function () {
+Route::get('/adminsignup', [SignUpController::class, 'insertAdminSignUp'])->name('Form.AdminSignUp');
+Route::post('/adminHome', [SignUpController::class, 'storeAdminSignUp'])->name('Form.StoreAdminSignUp');
+Route::post('/AdminHOme', [SignUpController::class, 'checkAdminLogin'])->name('Form.AdminLogin');
+Route::group(['middleware' => ['AdminMiddleWare']], function () {
     Route::get('/hello', [SignUpController::class, 'hello']);
 
+    Route::get('/admin', [ProductController::class, 'showOrdersPage'])->name('orders');
+    Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
+    Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
+    Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');
+    Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+});
+Route::group(['middleware' => ['authCheck']], function () {
     Route::post('/fav', [FavoritesController::class, 'storeFav'])->name('Home.Fav');
     Route::get('/favshow', [FavoritesController::class, 'showFav'])->name('Fav.show');
     Route::delete('/favorites/{id}', [FavoritesController::class, 'removeFavorite'])->name('removeFavorite');
@@ -51,12 +62,6 @@ Route::get('/banners1/page', [ProductController::class, 'showPage1'])->name('ban
 // Route::get('/cart', [HomeController::class, 'cart'])->name('Home.Cart');
 Route::post('/session', [StripeController::class, 'session'])->name('stripe.session');
 
-Route::get('/admin', [ProductController::class, 'showOrdersPage'])->name('orders');
-Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('addProduct');
-Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
-Route::get('/analytics', [ProductController::class, 'analytics'])->name('analytics');
-Route::post('/productStore', [ProductController::class, 'productStore'])->name('Store');
-Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 Route::get('/showcartitems', [ProductController::class, 'showcartitems'])->name('showcartitems');
 
