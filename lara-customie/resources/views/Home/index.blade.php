@@ -222,7 +222,7 @@
             </li>
             <li>
                 <a href="{{ route('Catagory.Women') }}" class="card">
-                    <img src="../imgs/Shirts/s1.PNG" class="card__image" alt="" />
+                    <img src="../imgs/Shirts/main.PNG" class="card__image" alt="" />
                     <div class="card__overlay">
                         <div class="card__header">
                             <div class="card__header-text">
